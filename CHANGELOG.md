@@ -97,6 +97,15 @@ implicit voice (now nine Laws and an explicit Voice & Stance section).
 - **Integrity manifest** in `README.md` re-hashed for the three files
   whose content moved (`INSTALL_PROMPT.md`, `tools/audit.sh`,
   `tools/bridge.sh`).
+- **`examples/case-study-2026-04-28/EVIDENCE.json`** — re-hashed
+  after a final LF normalization pass enforced by `.gitattributes`
+  (`* text=auto eol=lf`). The v0.1.0 hash
+  `d17f121e8cfb6a1557229286911ff6c227d27e02ad3934564cd478a3384fef34`
+  reflected the file with mixed CRLF line endings. The v0.1.1 hash
+  `b2145b871ae5c57a1646e01ea5741e43bf70653d8120289264cc4ff2686f0429`
+  reflects the canonical LF form. Content unchanged; only line
+  endings normalized to match the repo-wide convention. The CASE_STUDY
+  frontmatter is updated to the new hash.
 
 ### Discipline (additions)
 

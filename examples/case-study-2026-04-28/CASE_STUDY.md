@@ -7,7 +7,7 @@ purpose: one operator's 90-day Claude Code economics, with platform-incident det
 data_source: ~/.claude/projects/**/*.jsonl (8,512 files, 498,587 lines)
 snapshot_date: 2026-04-28 (UTC)
 window: 90 days (2026-01-29 → 2026-04-28)
-evidence_pack: ./EVIDENCE.json (sha256: d17f121e8cfb6a1557229286911ff6c227d27e02ad3934564cd478a3384fef34)
+evidence_pack: ./EVIDENCE.json (sha256: b2145b871ae5c57a1646e01ea5741e43bf70653d8120289264cc4ff2686f0429)
 ---
 
 # CASE STUDY — A 90-Day Snapshot
