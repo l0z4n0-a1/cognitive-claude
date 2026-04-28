@@ -1,4 +1,4 @@
-# cognitive-claude
+# cognitive-claude 🧙‍♂️
 
 **A policy layer for Claude Code.** A 91-line Constitution, five
 governance hooks, and a 720-line audit instrument that reads your
