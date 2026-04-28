@@ -1,0 +1,24 @@
+{
+  "_comment": "Template para projetos com secrets/credenciais. Deny reforçado em todos os paths sensíveis.",
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(*--no-verify*)",
+      "Bash(git reset --hard*)",
+      "Bash(*ANTHROPIC_API_KEY*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.env.local)",
+      "Read(./.env.production)",
+      "Read(./private/**)",
+      "Read(./secrets/**)",
+      "Read(./credentials.json)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa)",
+      "Read(**/id_ed25519)"
+    ]
+  }
+}
