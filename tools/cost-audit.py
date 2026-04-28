@@ -18,6 +18,7 @@ Usage:
     python3 tools/cost-audit.py --by-project          # per-project cost breakdown
     python3 tools/cost-audit.py --json                # machine-readable output
     python3 tools/cost-audit.py --evidence            # full evidence pack JSON
+    python3 tools/cost-audit.py --invariants          # verify metric contracts; exit 4 on violation
 
 No external dependencies. Python 3.8+ stdlib only.
 
@@ -606,6 +607,56 @@ def build_evidence_pack(
 
 
 # -----------------------------------------------------------------------------
+# Invariant verification (docs/INVARIANTS.md §2)
+# -----------------------------------------------------------------------------
+#
+# These are the contracts the audit instrument is allowed to publish.
+# A violation here means either (a) the source data is corrupt in a
+# way that survived the scanner, or (b) the instrument has a bug.
+# Either way, downstream claims become un-defensible — fail loud.
+
+
+def verify_invariants(metrics: dict[str, "WindowMetrics"]) -> list[str]:
+    """
+    Apply the five canonical contracts to every window. Returns a
+    list of human-readable failure messages; empty list = all pass.
+
+    Contracts:
+      I-1  cache_hit_rate_pct  ∈ [0, 100]
+      I-2  sub_agent_share_pct ∈ [0, 100]
+      I-3  cost_api_equivalent ≥ 0
+      I-4  cost_per_turn_api   ≥ 0
+      I-5  turns_main + turns_agent == turns_total
+    """
+    failures: list[str] = []
+    for label, M in metrics.items():
+        chr_pct = M.cache_hit_rate
+        if not (0.0 <= chr_pct <= 100.0):
+            failures.append(
+                f"[{label}] I-1 cache_hit_rate out of [0,100]: {chr_pct:.4f}"
+            )
+        sub_pct = M.sub_agent_share
+        if not (0.0 <= sub_pct <= 100.0):
+            failures.append(
+                f"[{label}] I-2 sub_agent_share out of [0,100]: {sub_pct:.4f}"
+            )
+        if M.cost_api_eq < 0:
+            failures.append(
+                f"[{label}] I-3 cost_api_equivalent < 0: {M.cost_api_eq}"
+            )
+        if M.cost_per_turn_api < 0:
+            failures.append(
+                f"[{label}] I-4 cost_per_turn_api < 0: {M.cost_per_turn_api}"
+            )
+        if M.turns_main + M.turns_agent != M.turns_total:
+            failures.append(
+                f"[{label}] I-5 turns_main({M.turns_main}) + "
+                f"turns_agent({M.turns_agent}) != turns_total({M.turns_total})"
+            )
+    return failures
+
+
+# -----------------------------------------------------------------------------
 # CLI
 # -----------------------------------------------------------------------------
 
@@ -650,6 +701,14 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="emit full evidence pack JSON (suitable for embedding in a public audit)",
     )
+    parser.add_argument(
+        "--invariants",
+        action="store_true",
+        help=(
+            "verify the five canonical metric contracts (docs/INVARIANTS.md §2) "
+            "against the scanned data; exit 4 on any violation"
+        ),
+    )
     args = parser.parse_args(argv)
 
     if not os.path.isdir(args.projects_dir):
@@ -670,6 +729,24 @@ def main(argv: list[str] | None = None) -> int:
     t0 = time.time()
     metrics, per_day, per_project, stats = scan_files(files, windows)
     elapsed = time.time() - t0
+
+    if args.invariants:
+        failures = verify_invariants(metrics)
+        if failures:
+            print("invariants FAILED — published metric contracts violated:", file=sys.stderr)
+            for f in failures:
+                print(f"  - {f}", file=sys.stderr)
+            print(
+                f"\n{len(failures)} contract violation(s). See docs/INVARIANTS.md §2 "
+                f"for definitions and falsification rules.",
+                file=sys.stderr,
+            )
+            return 4
+        print(
+            f"invariants OK — {len(metrics)} window(s) verified against "
+            f"5 canonical contracts. See docs/INVARIANTS.md §2."
+        )
+        return 0
 
     if args.json or args.evidence:
         payload = build_evidence_pack(
