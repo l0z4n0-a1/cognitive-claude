@@ -22,10 +22,63 @@ cost-per-turn, cache hit rate, sub-agent work share, and per-model
 routing breakdown. Stdlib Python only. ~60 seconds against ~10k JSONL
 files.
 
+---
+
+### What you will see (one operator's 90-day snapshot)
+
+This is **not a marketing screenshot.** It is the literal output of
+`cost-audit.py --window 90 --verbose` against one operator's
+`~/.claude/projects/`, derived from the sha256-pinned `EVIDENCE.json`
+in `examples/case-study-2026-04-28/`. **Your shape will differ.** The
+format will not. (Numbers here may differ by ~1% from the case-study
+prose: the case study locks the strict 90-day window 2026-01-29 →
+2026-04-28; the evidence pack uses the same definitions over the
+record's full file span. Same instrument, same definitions, slightly
+different windows. Run the instrument; trust your own data.)
+
+```
+  Window:                  90d (74 active days)
+  Sessions:                987
+  Turns (assistant):       201,910
+    main thread:           57,029
+    inside sub-agents:     144,881
+  Sub-agent work share:    71.76%      (filename-based, schema-stable)
+  Turns/session:           median 112  mean 205    (heavy right-tail)
+
+  Tokens (total billable): 19.46B
+  Cache hit rate:          91.63%
+
+  API-equivalent cost:     $42,358.19
+  Cost per turn (API):     $0.2098
+  Plan paid (3 months):    $500.00
+  Leverage (vs full term): 84.7×       (← see caveat below)
+
+  Per-model breakdown:
+    model       turns    share         cost      tokens
+    opus      106,092    52.5%   $39,873.47    18.62B
+    sonnet     40,109    19.9%    $1,804.10     0.66B
+    haiku      55,709    27.6%      $680.63     0.18B
+```
+
+**The ~84× leverage number is not what this framework "saves" you.** It
+is largely **plan-flat-rate vs. API-list-price arbitrage** that exists
+for any heavy Claude Code user with stable context, with or without
+this framework. What this framework actually contributes is **the
+instrument that makes the ratio measurable, attributable, and
+defensible** — see [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md) §1
+for the explicit separation, and the rest of this README for what the
+architecture does add.
+
+The full receipt — including the platform-incident attribution
+methodology, the schema-discontinuity disclosure, and the cache-rate-
+during-regression mechanism — is in
+[`examples/case-study-2026-04-28/`](./examples/case-study-2026-04-28/).
+The sha256-pinned evidence pack is committed alongside it; reproduce
+it with `python3 tools/cost-audit.py --window 90 --evidence`.
+
 If your numbers surprise you, read [`docs/MATH.md`](./docs/MATH.md) for
-the formulas, [`examples/case-study-2026-04-28/`](./examples/case-study-2026-04-28/)
-for one operator's snapshot, and [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md)
-for what the framework does *not* prove.
+the formulas and [`docs/LIMITATIONS.md`](./docs/LIMITATIONS.md) for
+what the framework does *not* prove.
 
 ---
 
