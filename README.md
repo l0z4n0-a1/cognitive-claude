@@ -87,20 +87,30 @@ what the framework does *not* prove.
 ```
 cognitive-claude/
 ├── CLAUDE.md                the Cognitive Constitution (~100 lines, 9 Laws)
-├── INSTALL_PROMPT.md        a Claude-native installer (read by claude itself)
+├── AUTHOR.md                public identity check (anti-bot signal)
+├── INSTALL_PROMPT.md        Claude-native installer (read by claude itself)
 ├── SECURITY.md              audit before installing, how to report
 ├── tools/
 │   ├── cost-audit.py        reproducible audit of your own telemetry
+│   ├── stress-test.py       e2e test of the audit instrument
 │   ├── audit.sh             boot-hook companion, fail-silent
-│   └── bridge.sh            session-end calibration loop
-├── hooks/                   6 hooks (telemetry, cache-guard, rule-bloat, tier-guard, boot, end)
-├── docs/
-│   ├── ARCHITECTURE.md      the why behind every decision
-│   ├── INSTALL.md           manual install fallback
-│   ├── MATH.md              every claim, derived from first principles
-│   ├── META_LEARNINGS.md    generalizable lessons from running the system
-│   ├── TRANSFER.md          adapting to other operator profiles
-│   └── LIMITATIONS.md       the strongest counter-arguments, stated up front
+│   ├── bridge.sh            session-end calibration loop
+│   ├── install.sh           phase-gated installer (dry-run by default)
+│   └── uninstall.sh         byte-exact restore from backup
+├── hooks/                   6 hooks (telemetry, cache-guard, rule-bloat,
+│                            tier-contradiction, boot, end)
+├── commands/
+│   └── handoff.md           /handoff slash-command
+├── output-styles/
+│   └── cognitive-claude.md  installable voice profile
+├── templates/               project-level settings.json starters
+│   ├── project-simple.json
+│   ├── project-squad.json
+│   └── project-sensitive.json
+├── docs/                    16 docs from gentle intro to falsification
+│                            protocols (READ_THIS_FIRST → HANDBOOK →
+│                            ARCHITECTURE → INTERNALS → MATH →
+│                            HOW_TO_FALSIFY → LIMITATIONS → ...)
 └── examples/
     └── case-study-2026-04-28/   one operator's 90-day snapshot
         ├── CASE_STUDY.md
@@ -115,7 +125,7 @@ The individual principles in this repo (prompt caching, sub-agent
 delegation, model routing, lazy loading) are documented in Anthropic's
 official docs. **Nothing here is invented.** What is offered:
 
-- **Synthesis.** Seven invariants and three governing structures (8
+- **Synthesis.** Seven invariants and three governing structures (9
   Laws, Mode 2 triggers, Decision Levels) that interlock. None of them
   in isolation moves the needle the same way.
 - **Instrumentation.** A single Python script that reads your raw
@@ -256,6 +266,20 @@ Future versions are roadmap, not vapor.
 | `tools/cost-audit.py --invariants`   | ✅ Ready (0.1.1)| Verifies five canonical metric contracts; exit 4 on violation |
 | `docs/INVARIANTS.md`                 | ✅ Ready (0.1.1)| Cross-reference: Laws ↔ MATH ↔ hooks ↔ instrument verification |
 | `docs/HANDBOOK.md`                   | ✅ Ready (0.1.1)| Field manual — day-to-day practice, boot/close rituals, seven trenches |
+| `docs/READ_THIS_FIRST.md`            | ✅ Ready (0.1.1)| 90-second gentle introduction for first-time visitors        |
+| `docs/SMELL_TESTS.md`                | ✅ Ready (0.1.1)| Five pre-install diagnostics; decide in 90 seconds if you need this |
+| `docs/INTERNALS.md`                  | ✅ Ready (0.1.1)| Source-verified Claude Code mechanics (3-zone cache, etc.)  |
+| `docs/VALUE_MODEL.md`                | ✅ Ready (0.1.1)| Token value beyond cost: EAGER/LAZY × frequency framework   |
+| `docs/HOW_TO_FALSIFY.md`             | ✅ Ready (0.1.1)| Seven runnable falsification protocols for the seven invariants |
+| `docs/CONFOUNDS.md`                  | ✅ Ready (0.1.1)| Post-hoc honesty pass: what the leverage number cannot prove |
+| `docs/STABILITY_DISCLAIMER.md`       | ✅ Ready (0.1.1)| Three claim categories + EOL conditions across Anthropic versions |
+| `docs/REPLICATION_LOG.md`            | ✅ Ready (0.1.1)| Empty registry inviting external operator reproductions     |
+| `tools/install.sh`                   | ✅ Ready (0.1.1)| Phase-gated installer — dry-run by default, idempotent      |
+| `tools/uninstall.sh`                 | ✅ Ready (0.1.1)| Byte-exact restore from backup, idempotent, dry-run default |
+| `commands/handoff.md`                | ✅ Ready (0.1.1)| `/handoff` slash-command materializing HANDBOOK §4 ritual   |
+| `output-styles/cognitive-claude.md`  | ✅ Ready (0.1.1)| Voice DNA installable — operational expression of Constitution §7 |
+| `templates/`                         | ✅ Ready (0.1.1)| Project-level settings.json starters: simple / squad / sensitive |
+| `AUTHOR.md`                          | ✅ Ready (0.1.1)| Public identity check (anti-bot signal for 2026)            |
 | `docs/MATH.md`                       | ✅ Ready        | Every claim derived from first principles                   |
 | `docs/INSTALL.md` (manual fallback)  | ✅ Ready        | ~15 min per phase if you prefer to read every command       |
 | `docs/ARCHITECTURE.md`               | ✅ Ready        | The why behind every decision                               |
@@ -378,28 +402,37 @@ this manifest before invoking the installer:
 
 ```bash
 cd ~/cognitive-claude
-sha256sum INSTALL_PROMPT.md \
-          tools/cost-audit.py tools/audit.sh tools/bridge.sh tools/test_redaction.py tools/stress-test.py \
+sha256sum INSTALL_PROMPT.md AUTHOR.md \
+          tools/cost-audit.py tools/audit.sh tools/bridge.sh \
+          tools/test_redaction.py tools/stress-test.py \
+          tools/install.sh tools/uninstall.sh \
           CLAUDE.md \
-          hooks/*.sh
+          hooks/*.sh \
+          commands/handoff.md \
+          output-styles/cognitive-claude.md
 ```
 
 Expected (v0.1.1):
 
 ```
 abfd8bc485ad4bc131cc0179a99445424c50d75034657756acad0bf04a3d3a69  INSTALL_PROMPT.md
+7d436228e7ae3c50127ca83f72d3d72362d181c30fbd731d2eaf50b3df23d82d  AUTHOR.md
 7a856f67a646306ba762cd189db4d76f5cf9f813a3799130dbfbd0a8d266b240  tools/cost-audit.py
 636602b5953ba3a461d87d8a26b1f81bb9e6e4a8b39c98ee8199b5e3701e60e7  tools/audit.sh
 d8b82f412b40cb81f797a939109dcc98e23366cfe880dd1ec87face704b21aee  tools/bridge.sh
 c3564626c39de31e47f3ebf6dd27896b2ca7c5de7696079ca3938d2b18627ea3  tools/test_redaction.py
 e43eb85c8b0c9eb747b7ca131f0fce30d7c5bc9306b969947d3b602f1bd35fa7  tools/stress-test.py
-58536bd5065c87ac14db97ea1190a1124077290b5abb2732ee6ff1d826d4e71e  CLAUDE.md
+10b4b33d23fe014b0578f84c26c12c49180078187679d6c03a09155a35a12c7c  tools/install.sh
+78997086093e5ce07da366d6d41e72664b8362b49db79259e2d1ddd40fc756ee  tools/uninstall.sh
+d842671e18539d49108b52db55aef7fd14c8a8109dac119dc7a4388a873831d3  CLAUDE.md
 2506714d11f363f1493ee67163674e6f94439314d01574e2bc47de9ec40285e3  hooks/cache-guard.sh
 9ce14ea40dfa45238af0813f5babf6b6fcf30c71e602bcaf127fac8029ef08f6  hooks/telemetry.sh
 58dd22b6f169962e88968d738b7f0602cb68c99e01185081205cf6408d7e3e30  hooks/tier-contradiction-guard.sh
 7c7214d55b007e8fd116fbe05c5570f357cfb6d5802a839a606f4d8dd33d98ce  hooks/token-economy-boot.sh
 a3aecd79794f465949b047e585307ea0755b5b491b7d1eb10f72ef3a59a1db75  hooks/token-economy-guard.sh
 6cee0755c41bb33654c3476eb8eb089386ffc38a055ba35cfae6592cacc6aaf9  hooks/token-economy-session-end.sh
+54712c635bd38f1a922eccb9f00eb176145fdb808c4f69a75e4d05f3b307cf5f  commands/handoff.md
+36419ed53b7cb6e80c86fae518014d311e24c16f464a26bc98df72f87641d947  output-styles/cognitive-claude.md
 ```
 
 The repo ships a `.gitattributes` (`* text=auto eol=lf`) that pins
@@ -470,21 +503,56 @@ it before running it. That is the discipline this project teaches.
 
 | If you want to...                        | Read                              |
 |------------------------------------------|-----------------------------------|
+| Decide in 90 seconds if this is for you  | `docs/READ_THIS_FIRST.md`         |
+| Pre-install: should I install at all?    | `docs/SMELL_TESTS.md`             |
 | Understand *why* before installing       | `docs/ARCHITECTURE.md`            |
 | **Live with it day-to-day after install** | **`docs/HANDBOOK.md`** (the field manual) |
 | See an example operator's 90-day audit   | `examples/case-study-2026-04-28/` |
 | Adapt for Sonnet, Pro, team, casual      | `docs/TRANSFER.md`                |
 | See every formula behind the methodology | `docs/MATH.md`                    |
+| See the underlying Claude Code mechanics | `docs/INTERNALS.md`               |
+| Beyond cost — what tokens are *worth*    | `docs/VALUE_MODEL.md`             |
+| Seven runnable falsification protocols   | `docs/HOW_TO_FALSIFY.md`          |
 | Reproduce metrics on your own data       | `python3 tools/cost-audit.py`     |
+| Install via script (phase-gated, idempotent) | `bash tools/install.sh --phase=1 --apply` |
 | Audit hooks before installing            | `SECURITY.md` + `hooks/*.sh`      |
 | Install manually, line by line           | `docs/INSTALL.md`                 |
 | Let Claude install for you               | `INSTALL_PROMPT.md` (in `claude`) |
+| Activate the voice (output style)        | `output-styles/cognitive-claude.md` |
+| Project-level settings.json starters     | `templates/`                      |
+| The `/handoff` slash command             | `commands/handoff.md`             |
 | Generalizable lessons from one run       | `docs/META_LEARNINGS.md`          |
 | The strongest counter-arguments          | `docs/LIMITATIONS.md`             |
+| What I cannot prove (post-hoc admission) | `docs/CONFOUNDS.md`               |
+| What stays true across Claude Code versions | `docs/STABILITY_DISCLAIMER.md` |
+| Replicate this on your data; report      | `docs/REPLICATION_LOG.md`         |
+| Who built this                           | `AUTHOR.md`                       |
 
 `ARCHITECTURE.md` is the document this project is most proud of.
 `examples/case-study-2026-04-28/` is the receipt that backs it.
 `LIMITATIONS.md` is the document that makes the receipt defensible.
+
+### Three reading paths
+
+If 16 docs feels like too many, pick a path and follow only it:
+
+**🔍 Skeptical-first** — *"convince me before I install"*
+> README → `docs/SMELL_TESTS.md` → `docs/LIMITATIONS.md` →
+> `docs/CONFOUNDS.md` → `docs/HOW_TO_FALSIFY.md` →
+> `examples/case-study-2026-04-28/` → decide
+
+**🛠️ Pragmatic-first** — *"I'll run Phase 1 today, give me the manual"*
+> `docs/READ_THIS_FIRST.md` → `docs/INSTALL.md` →
+> `docs/HANDBOOK.md` → install Phase 1 → run for 14 days →
+> re-evaluate from telemetry
+
+**📐 Methodology-first** — *"I want to understand the design"*
+> README → `docs/ARCHITECTURE.md` → `docs/MATH.md` →
+> `docs/INTERNALS.md` → `docs/INVARIANTS.md` →
+> `docs/META_LEARNINGS.md` → consider extending
+
+Each path is ~5 documents in order. The remaining ~10 docs are
+references — read them when the path crosses them naturally.
 
 ---
 

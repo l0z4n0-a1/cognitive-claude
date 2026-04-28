@@ -34,6 +34,22 @@ echo "Backed up to ~/.claude/.backups/"
 
 If anything goes wrong, restore is one `cp` away.
 
+### Three install paths, pick one
+
+This document is the **manual** path: every command shown, paste them
+yourself. ~15 minutes per phase. Maximum auditability.
+
+Two faster alternatives ship in the repo:
+
+| Path | Command | Time | Best when |
+|------|---------|------|-----------|
+| **Claude-native** | `claude` then say *"Read INSTALL_PROMPT.md and run Phase 1 only"* | ~5 min interactive | You already trust your Claude Code instance and want consent-at-each-write |
+| **Script** | `bash tools/install.sh --phase=1 --apply` (then `--phase=2`, `--phase=3 --i-have-read-claudemd`) | ~2 min, idempotent | You prefer reading bash to JSON, and you want a uninstaller of equal rigor (`bash tools/uninstall.sh --apply`) |
+| **Manual (this doc)** | Paste each command from the sections below | ~15 min | You want to see every byte that touches your `~/.claude/` |
+
+All three paths produce byte-identical results. Pick whichever
+matches your audit appetite.
+
 ### Verify the repo before you trust it (optional, ~10 sec)
 
 Two stdlib-only tests guard the parts of the repo that cannot be

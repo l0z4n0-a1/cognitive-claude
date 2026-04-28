@@ -107,6 +107,87 @@ implicit voice (now nine Laws and an explicit Voice & Stance section).
   endings normalized to match the repo-wide convention. The CASE_STUDY
   frontmatter is updated to the new hash.
 
+### Absorbed from a parallel work-in-progress branch
+
+A parallel `release/v0.1-karpathy-grade` branch had developed
+artifacts that complement v0.1.1 without contradicting it. After
+audit, eight artifacts were absorbed into v0.1.1; eight were
+declined as redundant with v0.1.1's existing maturity (notably the
+documents `RITUALS.md`, `SESSION_LIFECYCLE.md`, and
+`AUTO_EVOLUTION.md`, which overlap fully with `docs/HANDBOOK.md`'s
+boot/close/30-day sections).
+
+Operational artifacts absorbed:
+
+- **`AUTHOR.md`** — public identity check at repo root. In 2026,
+  *"is this real?"* is a fair first question for any GitHub repo.
+  Names the operator, the workload profile, the conflict of
+  interest, the lifecycle commitment (24 months from v0.1.0), the
+  contact channel.
+- **`commands/handoff.md`** — Claude Code slash-command that
+  materializes the session-close ritual prescribed in
+  `docs/HANDBOOK.md` §4 and §5. Operator types `/handoff` and
+  the model produces the `.session-state.md` per the convention.
+- **`output-styles/cognitive-claude.md`** — installable voice
+  profile. The operational expression of the Constitution's
+  Section 7 (Voice & Stance) at the Claude Code output-style
+  layer. Activated via `/output-style cognitive-claude`.
+- **`templates/project-{simple,squad,sensitive}.json`** — three
+  starter `.claude/settings.json` files for project-level deny
+  patterns. Adapted from the parallel branch with English comments
+  and a `templates/README.md` explaining the deny-only convention.
+- **`tools/install.sh`** — phase-gated installer. Dry-run by
+  default. Idempotent (skip-on-identical-backup). Phase 3 requires
+  `--i-have-read-claudemd` flag by design. Adapted to v0.1.1 hook
+  inventory (registers `tier-contradiction-guard.sh` as well).
+- **`tools/uninstall.sh`** — byte-exact restore from
+  `~/.claude/.backups/`. Idempotent, dry-run default, never deletes
+  telemetry (moves to `<dir>.removed.<ts>` for operator review).
+  Closes the previously-undocumented "easy to remove" claim.
+
+Documents absorbed:
+
+- **`docs/READ_THIS_FIRST.md`** — 90-second gentle introduction.
+  Different audience (first-time visitor) than `HANDBOOK.md`
+  (post-install operator). Both honor the same architecture in
+  different registers.
+- **`docs/SMELL_TESTS.md`** — five pre-install one-line diagnostics
+  that read `~/.claude/projects/`. Operator decides in 90 seconds
+  whether `cognitive-claude` would help or be cargo-cult adoption.
+  Read-only, zero side effects.
+- **`docs/INTERNALS.md`** — source-verified Claude Code mechanics:
+  3-zone cache, 12 break triggers, schema discontinuity history.
+  Captured at point-in-time per `STABILITY_DISCLAIMER.md`.
+- **`docs/VALUE_MODEL.md`** — token value framework beyond cost.
+  EAGER/LAZY × frequency × cache-state cost formula. Complement to
+  `MATH.md`'s cost derivations.
+- **`docs/HOW_TO_FALSIFY.md`** — seven runnable falsification
+  protocols, one per invariant. Each takes 14+ days to execute.
+  Materializes the falsifiability claims in `LIMITATIONS.md`.
+- **`docs/CONFOUNDS.md`** — post-hoc honesty pass on the headline
+  leverage number. Stronger version of `LIMITATIONS.md` §1's
+  attribution argument; preserved as separate doc because it is
+  written in confessional register (acknowledges the post-hoc
+  provenance up front).
+- **`docs/STABILITY_DISCLAIMER.md`** — three categories of claims
+  (anchored / mechanistic / observation-bound) and the EOL conditions
+  that would tell any future maintainer when to deprecate.
+- **`docs/REPLICATION_LOG.md`** — empty registry inviting external
+  operators to publish their own audit-instrument runs via PR.
+  Materializes `LIMITATIONS.md` §2's request for ≥3 case studies.
+
+All absorbed docs were updated for v0.1.1 conventions: tool names
+(`cost-audit.sh` → `cost-audit.py`), flag names (`--days` →
+`--window`), counts (`5 hooks` → `6 hooks`, `8 Laws` → `9 Laws`),
+the `.session-state.md` convention from HANDBOOK §5, and the
+sha256-pinned EVIDENCE.json numbers (`91.63%` cache, `71.76%`
+sub-share, `~84×` leverage).
+
+The integrity manifest in `README.md` is extended to cover the new
+load-bearing files (`AUTHOR.md`, `tools/install.sh`,
+`tools/uninstall.sh`, `commands/handoff.md`,
+`output-styles/cognitive-claude.md`).
+
 ### Discipline (additions)
 
 - The five canonical metric contracts now have a tool that fails

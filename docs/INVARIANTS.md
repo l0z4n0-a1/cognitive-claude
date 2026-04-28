@@ -171,6 +171,10 @@ your environment. If it fails, either your usage is outside the
 profile this framework targets (see `LIMITATIONS.md` §2 + `TRANSFER.md`)
 or the framework has a bug that needs reporting.
 
+For runnable 14-day experiments per invariant, see
+[`docs/HOW_TO_FALSIFY.md`](./HOW_TO_FALSIFY.md). This table is the
+fast index; HOW_TO_FALSIFY is the protocol.
+
 ---
 
 ## Section 6 — Reading order

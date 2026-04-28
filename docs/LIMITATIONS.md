@@ -344,6 +344,30 @@ public.
 - This document is what you should read **alongside** the case
   study, not after — its caveats reframe the case study's numbers.
 
+### Adjacent documents — different registers, same epistemic posture
+
+This document is the headline concession list. Three companion
+documents extend the same posture in different registers:
+
+- **`docs/CONFOUNDS.md`** — post-hoc honesty pass on §1's leverage
+  argument, including the strongest counter-argument stated as its
+  strongest defender would state it. CONFOUNDS goes deeper into
+  attribution; LIMITATIONS §1 is the executive summary.
+- **`docs/HOW_TO_FALSIFY.md`** — operationalizes §"What would falsify
+  each claim" into seven runnable 14-day experiments, one per
+  invariant. LIMITATIONS describes *what* would falsify; HOW_TO_FALSIFY
+  describes *how* to run the falsification.
+- **`docs/INVARIANTS.md`** §5 — the falsifiability matrix that maps
+  each load-bearing Law to a concrete falsification test. Table-form
+  index over the same material.
+
+The four documents (LIMITATIONS, CONFOUNDS, HOW_TO_FALSIFY, INVARIANTS
+§5) deliberately overlap. Each is the answer to a different reader's
+question: "what's the strongest critique?" → LIMITATIONS; "what does
+the author concede after the fact?" → CONFOUNDS; "how do I run the
+falsification myself?" → HOW_TO_FALSIFY; "where does this Law
+connect to that test?" → INVARIANTS §5.
+
 If you have read all six of those documents and you still want to
 install: you are the operator the framework is for. Read SECURITY.md
 once more, then start with Phase 1.
