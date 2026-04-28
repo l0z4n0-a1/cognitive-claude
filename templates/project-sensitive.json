@@ -1,0 +1,24 @@
+{
+  "_comment": "Project-level template for repos with secrets/credentials. Reinforced deny on all sensitive paths. Drop into <repo>/.claude/settings.json. Audit and extend per your specific secret-handling conventions.",
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(*--no-verify*)",
+      "Bash(git reset --hard*)",
+      "Bash(*ANTHROPIC_API_KEY*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.env.local)",
+      "Read(./.env.production)",
+      "Read(./private/**)",
+      "Read(./secrets/**)",
+      "Read(./credentials.json)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa)",
+      "Read(**/id_ed25519)"
+    ]
+  }
+}

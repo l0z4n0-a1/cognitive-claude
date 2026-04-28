@@ -1,0 +1,14 @@
+{
+  "_comment": "Project-level template for simple repos. Drop into <repo>/.claude/settings.json. Adapt deny patterns to your stack — these are starting points, not exhaustive.",
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(*--no-verify*)",
+      "Bash(git reset --hard*)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}
