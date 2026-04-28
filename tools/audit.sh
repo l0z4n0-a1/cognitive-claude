@@ -20,6 +20,13 @@
 
 set +e
 
+# Help shortcut — show the usage block above and exit before touching anything.
+for arg in "$@"; do
+  case "$arg" in
+    -h|--help) sed -n '2,19p' "$0"; exit 0 ;;
+  esac
+done
+
 CC_DIR="${HOME}/.claude/cognitive-claude"
 HISTORY_FILE="${CC_DIR}/audit-history.jsonl"
 mkdir -p "$CC_DIR"

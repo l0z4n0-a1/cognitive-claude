@@ -18,6 +18,13 @@
 
 set +e
 
+# Help shortcut — show the usage block above and exit before touching anything.
+for arg in "$@"; do
+  case "$arg" in
+    -h|--help) sed -n '2,17p' "$0"; exit 0 ;;
+  esac
+done
+
 WINDOW_DAYS="${1:-1}"
 WANT_JSON=0
 for arg in "$@"; do
