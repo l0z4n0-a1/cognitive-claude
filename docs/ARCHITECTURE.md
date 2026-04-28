@@ -44,7 +44,7 @@ modify or build your own: this is the document.
    ║   │ CONSTITUTION  │  │    HOOKS     │  │  GOVERNANCE      │    ║
    ║   │ (CLAUDE.md)   │  │ (5 scripts)  │  │  (L0-L5 layers)  │    ║
    ║   │               │  │              │  │                  │    ║
-   ║   │ 8 Laws        │  │ Boot         │  │ Mutability       │    ║
+   ║   │ 9 Laws        │  │ Boot         │  │ Mutability       │    ║
    ║   │ Decision Lvls │  │ Stop         │  │ rules per layer  │    ║
    ║   │ Mode 2 Trigs  │  │ PreToolUse   │  │                  │    ║
    ║   │ Traps         │  │ PostToolUse  │  │ Authority        │    ║
@@ -245,13 +245,14 @@ Is the rule enforceable by a binary decision (block / allow / log)?
           └─ YES →  use a hook
 ```
 
-**Why each of the five hooks in this repo exists:**
+**Why each of the six hooks in this repo exists:**
 
 | Hook | Fires when | Solves what |
 |---|---|---|
 | `telemetry.sh` | every tool call | Visibility — without it, no claim is verifiable |
 | `cache-guard.sh` | before Bash/Edit/Write | Cache breaks cost 50k+ tokens; humans forget; hooks remember |
 | `token-economy-guard.sh` | before Write to rules/ | Bloated rules are silent tax — guard catches creation |
+| `tier-contradiction-guard.sh` | before Edit/Write/NotebookEdit on a project CLAUDE.md | Materializes the L1↔L4 boundary (§3.7); warns when a project Constitution asserts what the global negates |
 | `token-economy-boot.sh` | on session start | Restores discipline state, prints status, no cost in tokens |
 | `token-economy-session-end.sh` | on session stop | Persists delta — closes the calibration loop |
 
@@ -567,10 +568,10 @@ Telemetry precedes optimization                ✅ Universal
 ```
 COMPONENT                       TRANSFERS IF                 ADAPT FOR
 ─────────                       ────────────                 ─────────
-The exact 91-line Constitution  Operator runs heavy Opus     Lighter use:
+The exact 103-line Constitution Operator runs heavy Opus     Lighter use:
                                 AND values dense reasoning   shorter Constitution,
                                                               fewer Mode 2 triggers
-The 5 hooks as-is               Bash + python3 available     Windows-only:
+The 6 hooks as-is               Bash + python3 available     Windows-only:
                                                               port to PowerShell
                                                               or WSL
 The 5 success metric targets    Workload is comparable       Casual user:
@@ -626,7 +627,7 @@ If you want to go deeper on a specific topic:
 
 | Topic | Source |
 |---|---|
-| Why these specific 8 Laws | `CLAUDE.md` (the Constitution itself, with rationale per Law) |
+| Why these specific 9 Laws | `CLAUDE.md` (the Constitution itself, with rationale per Law) |
 | Math behind every claim | `docs/MATH.md` (formulas + derivations + reproducibility one-liners) |
 | How to install | `docs/INSTALL.md` (manual) or `INSTALL_PROMPT.md` (Claude-native) |
 | Security audit / threat model | `SECURITY.md` |

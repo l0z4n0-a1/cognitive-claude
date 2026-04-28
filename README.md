@@ -1,7 +1,7 @@
 # cognitive-claude 🧙‍♂️
 
-**A policy layer for Claude Code.** A 91-line Constitution, five
-governance hooks, and a 720-line audit instrument that reads your
+**A policy layer for Claude Code.** A ~100-line Constitution, six
+governance hooks, and a single-file audit instrument that reads your
 own session logs and prints what your discipline is actually worth.
 
 The architecture is the contribution. The numbers are yours to measure.
@@ -33,14 +33,14 @@ for what the framework does *not* prove.
 
 ```
 cognitive-claude/
-├── CLAUDE.md                a 91-line Cognitive Constitution
+├── CLAUDE.md                the Cognitive Constitution (~100 lines, 9 Laws)
 ├── INSTALL_PROMPT.md        a Claude-native installer (read by claude itself)
 ├── SECURITY.md              audit before installing, how to report
 ├── tools/
 │   ├── cost-audit.py        reproducible audit of your own telemetry
 │   ├── audit.sh             boot-hook companion, fail-silent
 │   └── bridge.sh            session-end calibration loop
-├── hooks/                   5 hooks (telemetry, cache-guard, rule-bloat-guard, boot, end)
+├── hooks/                   6 hooks (telemetry, cache-guard, rule-bloat, tier-guard, boot, end)
 ├── docs/
 │   ├── ARCHITECTURE.md      the why behind every decision
 │   ├── INSTALL.md           manual install fallback
@@ -100,7 +100,7 @@ and codifies seven invariants:
 These invariants are operationalized through three governing
 structures in the [Constitution](./CLAUDE.md):
 
-- **8 Laws of Operation** — operational invariants that compound when interlocked
+- **9 Laws of Operation** — operational invariants that compound when interlocked
 - **Mode 2 Triggers** — explicit pre-action states that force genuine reasoning
 - **Decision Levels (1/2/3)** — when to decide alone, when to flag, when to escalate
 
@@ -155,7 +155,7 @@ characterization yourself.
 | [SuperClaude_Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework) | Configuration framework with multiple sub-systems (personas, methodologies, token discipline) | **Adjacent**: broader scope, configures Claude Code in many dimensions. cognitive-claude focuses narrowly on cache + cost attribution discipline. The frameworks are not exclusive. |
 | [ryoppippi/ccusage](https://github.com/ryoppippi/ccusage) | Usage observability dashboard for Claude Code | **Complementary**: same data source (`~/.claude/projects/`), different framing. ccusage answers *"what did I spend?"*; `cost-audit.py` answers *"is my context strategy defensible against the math?"*. Run both. |
 | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | Curated list of Claude Code skills, hooks, slash commands | **Above** us: a directory. cognitive-claude is the kind of thing that *belongs on* this list, not a competitor to it. |
-| Generic `~/.claude/CLAUDE.md` templates | A markdown file dropped in `~/.claude/` to shape Claude's behavior | **Different shape**: most templates are long. The Constitution is 91 lines on purpose. Tax is multiplicative; small Constitution + hooks + telemetry tends to outperform long Constitution alone in this operator's measurements. |
+| Generic `~/.claude/CLAUDE.md` templates | A markdown file dropped in `~/.claude/` to shape Claude's behavior | **Different shape**: most templates are long. The Constitution is ~100 lines on purpose. Tax is multiplicative; small Constitution + hooks + telemetry tends to outperform long Constitution alone in this operator's measurements. |
 
 If your itch is *"give me a constitution-shaped policy with the
 instrument that proves it works on my own data"* — this is the repo.
@@ -183,12 +183,12 @@ read the math, take what generalizes, skip the install.
 
 ## Status of components
 
-This project ships in stages. v0.1 is what is in this repo right now.
+This project ships in stages. v0.1.1 is what is in this repo right now.
 Future versions are roadmap, not vapor.
 
 | Component                            | v0.1 status     | Notes                                                        |
 |--------------------------------------|-----------------|--------------------------------------------------------------|
-| `CLAUDE.md` (Constitution)           | ✅ Ready        | Drop into `~/.claude/CLAUDE.md`, 91 lines, byte-exact       |
+| `CLAUDE.md` (Constitution)           | ✅ Ready        | Drop into `~/.claude/CLAUDE.md`, 103 lines, byte-exact      |
 | `INSTALL_PROMPT.md` (Claude-native)  | ✅ Ready        | Recommended path. Claude reads it and installs the rest     |
 | `tools/cost-audit.py`                | ✅ Ready        | Reproduces every metric definition against your own data    |
 | `tools/audit.sh`                     | ✅ Ready        | Boot-hook companion, fail-silent if `cost-audit.py` absent  |
@@ -198,6 +198,11 @@ Future versions are roadmap, not vapor.
 | `hooks/token-economy-guard.sh`       | ✅ Ready        | PreToolUse hook on Write to rules/, warns only              |
 | `hooks/token-economy-boot.sh`        | ✅ Ready        | SessionStart hook, fail-silent if optional tools absent     |
 | `hooks/token-economy-session-end.sh` | ✅ Ready        | Stop hook, fail-silent if optional tools absent             |
+| `hooks/tier-contradiction-guard.sh`  | ✅ Ready (0.1.1)| PreToolUse on Edit/Write, warns on project↔global CLAUDE.md contradiction |
+| `tools/stress-test.py`               | ✅ Ready (0.1.1)| End-to-end test of audit instrument vs ideal/edge/malformed inputs |
+| `tools/cost-audit.py --invariants`   | ✅ Ready (0.1.1)| Verifies five canonical metric contracts; exit 4 on violation |
+| `docs/INVARIANTS.md`                 | ✅ Ready (0.1.1)| Cross-reference: Laws ↔ MATH ↔ hooks ↔ instrument verification |
+| `docs/HANDBOOK.md`                   | ✅ Ready (0.1.1)| Field manual — day-to-day practice, boot/close rituals, seven trenches |
 | `docs/MATH.md`                       | ✅ Ready        | Every claim derived from first principles                   |
 | `docs/INSTALL.md` (manual fallback)  | ✅ Ready        | ~15 min per phase if you prefer to read every command       |
 | `docs/ARCHITECTURE.md`               | ✅ Ready        | The why behind every decision                               |
@@ -211,7 +216,7 @@ Future versions are roadmap, not vapor.
 | Plugin contracts                     | 🚧 v0.3 roadmap | Will materialize when 3+ operators ask                     |
 
 **Rule of this project: nothing in roadmap blocks v0.1 from being useful.**
-The Constitution + 5 hooks + the audit instrument + the math are enough to
+The Constitution + 6 hooks + the audit instrument + the math are enough to
 extract real measurement discipline. Tools come when they can be tested across
 platforms without breaking yours.
 
@@ -321,22 +326,24 @@ this manifest before invoking the installer:
 ```bash
 cd ~/cognitive-claude
 sha256sum INSTALL_PROMPT.md \
-          tools/cost-audit.py tools/audit.sh tools/bridge.sh tools/test_redaction.py \
+          tools/cost-audit.py tools/audit.sh tools/bridge.sh tools/test_redaction.py tools/stress-test.py \
           CLAUDE.md \
           hooks/*.sh
 ```
 
-Expected (v0.1.0):
+Expected (v0.1.1):
 
 ```
-aca5ac877143c92c34410ab08bd12f8c60aba2b1451c73629c5ee4f840b7c121  INSTALL_PROMPT.md
-1307a34e9035619dcaa79402a164cbb493f84d25084488c570a9462dae0d550d  tools/cost-audit.py
-6711d2cac9cc03724ede8624012a54ebbfd56dbb303c1eba6267bc0cfb7e40d6  tools/audit.sh
-b609a436959a51837a60fbdc47746505fdf13988dad984f53f934067cd597779  tools/bridge.sh
+abfd8bc485ad4bc131cc0179a99445424c50d75034657756acad0bf04a3d3a69  INSTALL_PROMPT.md
+7a856f67a646306ba762cd189db4d76f5cf9f813a3799130dbfbd0a8d266b240  tools/cost-audit.py
+636602b5953ba3a461d87d8a26b1f81bb9e6e4a8b39c98ee8199b5e3701e60e7  tools/audit.sh
+d8b82f412b40cb81f797a939109dcc98e23366cfe880dd1ec87face704b21aee  tools/bridge.sh
 c3564626c39de31e47f3ebf6dd27896b2ca7c5de7696079ca3938d2b18627ea3  tools/test_redaction.py
-59d8877c28d43f0b6d4fc82eb8c5a7f119f0cf3445b3c30442e0321cfe7955d4  CLAUDE.md
+e43eb85c8b0c9eb747b7ca131f0fce30d7c5bc9306b969947d3b602f1bd35fa7  tools/stress-test.py
+58536bd5065c87ac14db97ea1190a1124077290b5abb2732ee6ff1d826d4e71e  CLAUDE.md
 2506714d11f363f1493ee67163674e6f94439314d01574e2bc47de9ec40285e3  hooks/cache-guard.sh
 9ce14ea40dfa45238af0813f5babf6b6fcf30c71e602bcaf127fac8029ef08f6  hooks/telemetry.sh
+58dd22b6f169962e88968d738b7f0602cb68c99e01185081205cf6408d7e3e30  hooks/tier-contradiction-guard.sh
 7c7214d55b007e8fd116fbe05c5570f357cfb6d5802a839a606f4d8dd33d98ce  hooks/token-economy-boot.sh
 a3aecd79794f465949b047e585307ea0755b5b491b7d1eb10f72ef3a59a1db75  hooks/token-economy-guard.sh
 6cee0755c41bb33654c3476eb8eb089386ffc38a055ba35cfae6592cacc6aaf9  hooks/token-economy-session-end.sh
@@ -353,11 +360,15 @@ Any verified mismatch on `INSTALL_PROMPT.md`, the hooks, the audit
 instrument, or its tests means you are looking at modified code.
 Do not run the installer until you understand why.
 
-You can also verify the redaction discipline ships unbroken:
+You can also verify the two non-visual contracts ship unbroken:
 
 ```bash
 python3 tools/test_redaction.py
-# Expected: OK (16 tests, 0 failures)
+# Expected: OK (16 tests, 0 failures) — secret-redaction patterns
+
+python3 tools/stress-test.py
+# Expected: OK across ideal / edge / malformed fixtures —
+# the audit instrument honors the metric contracts in docs/INVARIANTS.md §2
 ```
 
 ---
@@ -407,6 +418,7 @@ it before running it. That is the discipline this project teaches.
 | If you want to...                        | Read                              |
 |------------------------------------------|-----------------------------------|
 | Understand *why* before installing       | `docs/ARCHITECTURE.md`            |
+| **Live with it day-to-day after install** | **`docs/HANDBOOK.md`** (the field manual) |
 | See an example operator's 90-day audit   | `examples/case-study-2026-04-28/` |
 | Adapt for Sonnet, Pro, team, casual      | `docs/TRANSFER.md`                |
 | See every formula behind the methodology | `docs/MATH.md`                    |

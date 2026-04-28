@@ -29,7 +29,7 @@ architectural calls. Cost matters but is not your primary concern.
 ```
 COMPONENT                  AS-IS                FOR YOU
 ─────────                  ─────                ───────
-Constitution length        91 lines / 1.3k tok  Same. Independent of model.
+Constitution length        103 lines / 1.5k tok Same. Independent of model.
 Cache hit rate target      ≥ 90%                Same. Independent of model.
 Sub-agent turn-share       ≥ 50% (turn-basis)   Lower OK (30–40%) — Sonnet
                                                 cheaper means main thread
@@ -46,8 +46,8 @@ Model routing table        Most agents Haiku    More agents on Sonnet OK
 
 **What does not change:**
 
-- All 8 Laws. They are model-agnostic.
-- All 5 hooks. They observe / enforce regardless of model.
+- All 9 Laws. They are model-agnostic.
+- All 6 hooks. They observe / enforce regardless of model.
 - The closed loop. Calibration works on any model.
 - The decision flows in ARCHITECTURE.md section 4.
 
@@ -148,7 +148,7 @@ Settings drift            Personal audit     Team audit — diff settings
 
 **What does not change:**
 
-- The 8 Laws.
+- The 9 Laws.
 - The principles.
 - The hook contracts.
 

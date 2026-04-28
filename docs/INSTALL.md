@@ -34,6 +34,22 @@ echo "Backed up to ~/.claude/.backups/"
 
 If anything goes wrong, restore is one `cp` away.
 
+### Verify the repo before you trust it (optional, ~10 sec)
+
+Two stdlib-only tests guard the parts of the repo that cannot be
+visually audited at a glance — the redaction regex and the audit
+instrument's metric contracts:
+
+```bash
+cd ~/cognitive-claude
+python3 tools/test_redaction.py    # 16 tests — secret-redaction patterns
+python3 tools/stress-test.py       # 3 fixtures — instrument vs ideal/edge/malformed input
+```
+
+Both should print `OK` and exit zero. If either fails, you are looking
+at modified code — do not install until you understand why. See
+`docs/INVARIANTS.md` §2 for the contracts the second test verifies.
+
 ### What gets touched
 
 | Phase | Files modified                             | Reversible?         |
@@ -186,10 +202,11 @@ Plus add session-boundary hooks for boot and close.
 **1. Copy the hooks.**
 
 ```bash
-cp ~/cognitive-claude/hooks/cache-guard.sh           ~/.claude/hooks/
-cp ~/cognitive-claude/hooks/token-economy-guard.sh   ~/.claude/hooks/
-cp ~/cognitive-claude/hooks/token-economy-boot.sh    ~/.claude/hooks/
-cp ~/cognitive-claude/hooks/token-economy-session-end.sh ~/.claude/hooks/
+cp ~/cognitive-claude/hooks/cache-guard.sh                ~/.claude/hooks/
+cp ~/cognitive-claude/hooks/token-economy-guard.sh        ~/.claude/hooks/
+cp ~/cognitive-claude/hooks/token-economy-boot.sh         ~/.claude/hooks/
+cp ~/cognitive-claude/hooks/token-economy-session-end.sh  ~/.claude/hooks/
+cp ~/cognitive-claude/hooks/tier-contradiction-guard.sh   ~/.claude/hooks/
 chmod +x ~/.claude/hooks/*.sh
 ```
 
@@ -240,11 +257,34 @@ Add to the existing `hooks` block:
         "hooks": [
           { "type": "command", "command": "bash ~/.claude/hooks/token-economy-guard.sh" }
         ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/tier-contradiction-guard.sh" }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/tier-contradiction-guard.sh" }
+        ]
+      },
+      {
+        "matcher": "NotebookEdit",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/tier-contradiction-guard.sh" }
+        ]
       }
     ]
   }
 }
 ```
+
+The `tier-contradiction-guard.sh` (added in v0.1.1) warns when a
+project-level `CLAUDE.md` write asserts language the global Constitution
+explicitly negates. Heuristic, warn-only, fail-silent if the global is
+absent. See `docs/INVARIANTS.md` §3.1 for the rationale.
 
 If you already have entries in any of these arrays, append. Do not replace.
 
@@ -254,9 +294,14 @@ Run a session that edits a file. The boot hook should print a status
 line at session start. If you try to edit `~/.claude/CLAUDE.md`
 mid-session, you should see a `[CACHE GUARD] WARNING` message.
 
-The boot and session-end hooks degrade silently if their optional
-sub-tools (`tools/audit.sh`, `tools/bridge.sh`) are absent. They are
-roadmap and will land in v0.2; the hooks are forward-compatible.
+The boot and session-end hooks invoke `tools/audit.sh` and `tools/bridge.sh`
+respectively if reachable. They locate `cost-audit.py` via, in order:
+`$COGNITIVE_CLAUDE_HOME/tools/cost-audit.py`,
+`~/cognitive-claude/tools/cost-audit.py`, and
+`~/.claude/cognitive-claude/tools/cost-audit.py`. If you cloned the repo
+to a non-canonical path, export `COGNITIVE_CLAUDE_HOME` in your shell
+rc so the calibration loop closes. If unset and no canonical path
+matches, the hooks degrade silently — the session still starts.
 
 **4. Compare.**
 
@@ -276,6 +321,7 @@ rm ~/.claude/hooks/cache-guard.sh
 rm ~/.claude/hooks/token-economy-guard.sh
 rm ~/.claude/hooks/token-economy-boot.sh
 rm ~/.claude/hooks/token-economy-session-end.sh
+rm ~/.claude/hooks/tier-contradiction-guard.sh
 # Phase 1 telemetry hook kept
 ```
 
@@ -285,8 +331,8 @@ rm ~/.claude/hooks/token-economy-session-end.sh
 
 ### Goal
 
-**Replace** your `~/.claude/CLAUDE.md` with the 91-line Cognitive
-Constitution. Your original is backed up.
+**Replace** your `~/.claude/CLAUDE.md` with the Cognitive Constitution
+(~100 lines, 9 Laws). Your original is backed up.
 
 This is the highest-leverage and highest-risk step. The Constitution
 is **law**. It changes how the LLM reasons, not just how it operates.
@@ -294,7 +340,7 @@ You must read [`CLAUDE.md`](../CLAUDE.md) end-to-end before installing.
 
 ### Disclaimer (read before checklist)
 
-> Removing or modifying any of the 8 Laws may produce LLM behavior the
+> Removing or modifying any of the 9 Laws may produce LLM behavior the
 > original Constitution does not predict or protect against. The Laws
 > interlock: L1 (observe before acting) and L2 (execute and verify)
 > form the empirical floor; L3-L8 are layered on top. Modify with
@@ -304,7 +350,7 @@ You must read [`CLAUDE.md`](../CLAUDE.md) end-to-end before installing.
 ### Pre-install checklist
 
 - [ ] You have read `CLAUDE.md` in full
-- [ ] You agree with all 8 Laws of Operation
+- [ ] You agree with all 9 Laws of Operation
 - [ ] You understand Mode 2 triggers
 - [ ] You understand Decision Levels and the Ambiguity rule
 - [ ] You have a backup of your current CLAUDE.md (mandatory)
@@ -344,7 +390,7 @@ Run 10 sessions before evaluating impact.
 The Constitution is **opinionated**. Some operators will want to
 extend or modify. Recommended approach:
 
-1. **Do not delete** any of the 8 Laws. They interlock.
+1. **Do not delete** any of the 9 Laws. They interlock.
 2. **Add** project-specific extensions in your **project-level**
    CLAUDE.md (`<project>/.claude/CLAUDE.md`), not in global.
 3. **Override with caution.** A project CLAUDE.md may extend but
@@ -362,6 +408,15 @@ cp ~/.claude/.backups/CLAUDE.md.<DATE> ~/.claude/CLAUDE.md
 ---
 
 ## After all three phases
+
+### Read the field manual
+
+Once any Phase is installed and you have at least 5 sessions of
+telemetry, read [`docs/HANDBOOK.md`](./HANDBOOK.md). It is the
+practical companion to this install — the seven things that change in
+your daily work, the boot ritual, the session-close ritual, the seven
+trenches you will hit and the move for each. The install document
+ends; the handbook begins where it ends.
 
 ### Weekly review
 

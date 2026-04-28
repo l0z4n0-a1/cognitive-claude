@@ -161,6 +161,7 @@ None of them block — they print warnings to terminal.
    cp hooks/token-economy-guard.sh   ~/.claude/hooks/
    cp hooks/token-economy-boot.sh    ~/.claude/hooks/
    cp hooks/token-economy-session-end.sh ~/.claude/hooks/
+   cp hooks/tier-contradiction-guard.sh  ~/.claude/hooks/
    chmod +x ~/.claude/hooks/*.sh
    ```
 
@@ -202,6 +203,13 @@ None of them block — they print warnings to terminal.
        added.append('PreToolUse(Write) -> cache-guard.sh')
    if ensure_hook('PreToolUse', 'Write(*.claude/rules/*)', 'bash ~/.claude/hooks/token-economy-guard.sh'):
        added.append('PreToolUse(rules) -> token-economy-guard.sh')
+   # tier-contradiction-guard: warns when project CLAUDE.md contradicts global
+   if ensure_hook('PreToolUse', 'Edit', 'bash ~/.claude/hooks/tier-contradiction-guard.sh'):
+       added.append('PreToolUse(Edit) -> tier-contradiction-guard.sh')
+   if ensure_hook('PreToolUse', 'Write', 'bash ~/.claude/hooks/tier-contradiction-guard.sh'):
+       added.append('PreToolUse(Write) -> tier-contradiction-guard.sh')
+   if ensure_hook('PreToolUse', 'NotebookEdit', 'bash ~/.claude/hooks/tier-contradiction-guard.sh'):
+       added.append('PreToolUse(NotebookEdit) -> tier-contradiction-guard.sh')
 
    with open(path, 'w') as f:
        json.dump(d, f, indent=2)
@@ -225,14 +233,14 @@ None of them block — they print warnings to terminal.
 
 ### Phase 3 — Constitution (30 min, requires operator to read first)
 
-Goal: replace `~/.claude/CLAUDE.md` with the 91-line Cognitive Constitution.
+Goal: replace `~/.claude/CLAUDE.md` with the Cognitive Constitution (~100 lines, 9 Laws).
 
 **This is the highest-impact change in the entire install.** Treat with maximum care.
 
 **Pre-flight:**
 
 1. **Refuse to proceed unless operator confirms they have read CLAUDE.md.** Ask:
-   > "Phase 3 replaces your global `~/.claude/CLAUDE.md` with the 91-line Cognitive Constitution from this repo. The Constitution changes how Claude Code reasons in every future session — not just how it behaves operationally. Have you read `CLAUDE.md` in this repo end-to-end? Type 'yes, I have read it' to proceed."
+   > "Phase 3 replaces your global `~/.claude/CLAUDE.md` with the Cognitive Constitution from this repo (~100 lines, 9 Laws). The Constitution changes how Claude Code reasons in every future session — not just how it behaves operationally. Have you read `CLAUDE.md` in this repo end-to-end? Type 'yes, I have read it' to proceed."
 
    If they do not type that exact phrase, abort. Tell them to open `CLAUDE.md` in their editor and re-invoke the install when they are ready.
 
@@ -243,7 +251,7 @@ Goal: replace `~/.claude/CLAUDE.md` with the 91-line Cognitive Constitution.
      wc -l ~/.claude/CLAUDE.md CLAUDE.md
    fi
    ```
-   Ask: "Your current CLAUDE.md is N lines. The new one is 91 lines. Above is the first 50 lines of difference. Continue?"
+   Ask: "Your current CLAUDE.md is N lines. The new one is 103 lines. Above is the first 50 lines of difference. Continue?"
 
 **Steps:**
 
@@ -259,7 +267,7 @@ Goal: replace `~/.claude/CLAUDE.md` with the 91-line Cognitive Constitution.
 
 3. **Verify:**
    ```bash
-   wc -l ~/.claude/CLAUDE.md   # should be 92 (91 lines + final newline)
+   wc -l ~/.claude/CLAUDE.md   # should be 103 lines (current Constitution length)
    ```
 
 4. **Cache notice to operator:**

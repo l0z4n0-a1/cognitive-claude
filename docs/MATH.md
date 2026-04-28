@@ -211,18 +211,19 @@ overhead_cost_per_turn = claude_md_tokens × input_price
                        = $0.075 per turn
 ```
 
-A 91-line, ~1,300-token CLAUDE.md (this project's default) reduces:
+A 103-line, ~1,500-token CLAUDE.md (this project's default — 9 Laws +
+Voice & Stance + Mode 2 triggers + protocols + traps) reduces:
 ```
-1,300 × 150 = 195,000 tokens per session
+1,500 × 150 = 225,000 tokens per session
 ```
 
-That is **3.85× less token volume** moving through the system per
-session. To compute your own savings, plug in your own median
-turns/session (the instrument prints it as `Turns/session: median ...`)
-and your own session cadence:
+That is **~3.3× less token volume** moving through the system per
+session compared to a 5,000-token Constitution. To compute your own
+savings, plug in your own median turns/session (the instrument prints
+it as `Turns/session: median ...`) and your own session cadence:
 
 ```
-saved_tokens_over_window = (current_tokens - 1300)
+saved_tokens_over_window = (current_tokens - 1500)
                          × your_median_turns_per_session
                          × your_sessions_in_window
 ```
@@ -236,6 +237,12 @@ At Opus input price (cache-cold):
 ```
 saved_cost_max = saved_tokens × $15.00/M
 ```
+
+(Earlier framing references a 91-line, ~1,300-token Constitution from
+v0.1.0. v0.1.1 added L9 and Section 7 Voice & Stance, reaching 103
+lines / ~1,500 tokens. The shape of the math is identical; substitute
+your own current Constitution-token count using
+`wc -w ~/.claude/CLAUDE.md` × ~1.3 as a fast estimator.)
 
 Real savings sit between these bounds — closer to the lower bound
 when cache discipline is strong (>90% hit rate sustained), closer

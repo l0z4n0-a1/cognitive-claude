@@ -249,7 +249,7 @@ warmup = more stable prefix across sessions.
 
 **Implication.** **Treat CLAUDE.md as code.** Every line you add must
 justify itself against the multiplication "N turns × M sessions × P
-months." If it does not, it does not belong. The 91-line Constitution
+months." If it does not, it does not belong. The ~100-line Constitution
 in this repo is the result of months of brutal removal.
 
 **Trust signal in the instrument.** `wc -w ~/.claude/CLAUDE.md` (~1
@@ -261,7 +261,7 @@ each line earns.
 
 ## 9. Hooks are 10× cheaper than rules; rules are infinity× cheaper than ad-hoc.
 
-**Pattern.** A heavily-used setup with the 5 hooks in this repo
+**Pattern.** A heavily-used setup with the 6 hooks in this repo
 executes them hundreds of thousands of times at zero context-token
 cost. A single rule-without-glob in `.claude/rules/` would cost
 ~900 tokens per match × ~50 matches/session × hundreds of sessions

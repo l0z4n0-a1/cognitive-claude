@@ -28,11 +28,18 @@ CC_DIR="${HOME}/.claude/cognitive-claude"
 HISTORY_FILE="${CC_DIR}/audit-history.jsonl"
 mkdir -p "$CC_DIR"
 
-# Locate cost-audit.py
+# Locate cost-audit.py. Search order, first hit wins:
+#   1. $COGNITIVE_CLAUDE_HOME/tools/cost-audit.py    — explicit operator override
+#   2. ~/cognitive-claude/tools/cost-audit.py        — canonical clone path
+#   3. ~/.claude/cognitive-claude/tools/cost-audit.py — alternative under .claude/
 COST_AUDIT=""
-for candidate in \
-  "${HOME}/cognitive-claude/tools/cost-audit.py" \
-  "${HOME}/.claude/cognitive-claude/tools/cost-audit.py"; do
+CANDIDATES=()
+[ -n "$COGNITIVE_CLAUDE_HOME" ] && CANDIDATES+=("${COGNITIVE_CLAUDE_HOME}/tools/cost-audit.py")
+CANDIDATES+=(
+  "${HOME}/cognitive-claude/tools/cost-audit.py"
+  "${HOME}/.claude/cognitive-claude/tools/cost-audit.py"
+)
+for candidate in "${CANDIDATES[@]}"; do
   if [ -f "$candidate" ]; then
     COST_AUDIT="$candidate"
     break

@@ -1,0 +1,48 @@
+# cognitive-claude / .gitignore
+#
+# This repo ships a framework. The framework, when installed, produces
+# operator-local artifacts (telemetry logs, calibration history, session
+# states). None of those belong in the repo. This file prevents them
+# from being accidentally committed if an operator runs the system from
+# inside the cloned tree.
+
+# Operator-local runtime artifacts (HANDBOOK §4, §5)
+.session-state.md
+.session-state.*
+.session-todo.md
+*.session-state.md
+
+# Telemetry / calibration history (if a contributor symlinks the repo
+# into their ~/.claude/ for testing and runtime data leaks back in)
+telemetry/
+bridge-history.jsonl
+audit-history.jsonl
+last-boot-status.txt
+
+# Operator-local evidence packs (CASE_STUDY canonical pack stays;
+# personal evidence stays out)
+my-evidence.json
+*-evidence.json
+!examples/**/EVIDENCE.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Python bytecode (cost-audit.py + stress-test.py are stdlib only and
+# should never produce __pycache__ if invoked via `python3 file.py`,
+# but defense-in-depth)
+__pycache__/
+*.pyc
+*.pyo
+
+# Backups (operator backups go to ~/.claude/.backups/ by INSTALL_PROMPT
+# convention, not into the repo, but defense-in-depth)
+*.bak
+*.backup
+.backups/

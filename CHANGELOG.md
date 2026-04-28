@@ -9,6 +9,120 @@ substantive additions / corrections (`MINOR`).
 
 ---
 
+## [0.1.1] — 2026-04-28
+
+Polish release. No breaking changes. The five-phase loop, telemetry
+contract, and metric definitions are unchanged. This release closes
+three documented gaps in v0.1.0: the L4↔L1 boundary was declarative
+only (now enforced); the audit instrument had no end-to-end stress
+test (now ships one); the Constitution stated eight Laws and an
+implicit voice (now nine Laws and an explicit Voice & Stance section).
+
+### Added
+
+- **`docs/INVARIANTS.md`** — single-page cross-reference between
+  Constitution Laws, MATH derivations, hook enforcement, and
+  audit-instrument verification.
+- **`docs/HANDBOOK.md`** — the field manual. Practical companion to
+  the install: the day-one shifts, the 200k context wall, the boot
+  ritual, the session-close ritual, the handoff between sessions,
+  seven concrete trenches with their moves, and the 30-day "good"
+  shape. Closes the gap between "I installed it" and "I live with
+  it." Lazy-read, non-prefix, no token tax. Where META_LEARNINGS.md
+  is the lecture, this is the field manual; both honor the same
+  truth in different registers. Section 1 maps every invariant to
+  its enforcement mechanism. Section 2 specifies the five canonical
+  metric contracts (cache hit rate, sub-agent share, API-equivalent
+  cost, cost per turn, leverage) with valid ranges and falsification
+  tests. Section 5 states what would falsify each load-bearing claim.
+  Lazy-loaded — zero prefix cost.
+- **`hooks/tier-contradiction-guard.sh`** — PreToolUse hook on Edit
+  / Write / NotebookEdit. Materializes the L1↔L4 boundary
+  (`docs/ARCHITECTURE.md` §3.7, `docs/INVARIANTS.md` §3.1) by
+  warning when a project-level `CLAUDE.md` write contains language
+  the global Constitution explicitly negates. Heuristic, warn-only,
+  fail-silent if the global is absent. Zero context-token cost.
+- **`tools/stress-test.py`** — end-to-end test of the audit
+  instrument against three synthetic input classes (ideal / edge /
+  malformed). Verifies the five canonical contracts hold for each
+  class and that the malformed class survives without crashing.
+  Closes the Quintessence integration phase that v0.1.0 only
+  covered narratively.
+- **`tools/cost-audit.py --invariants`** — new flag. Verifies the
+  five canonical contracts against the scanned data and exits 4 on
+  any violation. Produces the operational signal `INVARIANTS.md` §2
+  is the contract for. Default behavior unchanged when the flag is
+  absent.
+- **`CLAUDE.md` Section 7 — Voice & Stance** — three lines codifying
+  the register the system communicates in (austere, falsifiable,
+  anti-hype) without inventing a persona or arquetype. Net additions
+  to the Constitution: ~140 tokens, ~$0.0002 per cache-hot Opus turn.
+
+### Changed
+
+- **`CLAUDE.md` Section 2 — Laws of Operation** now has nine Laws.
+  L9 (*Every boundary declares its contract*) makes explicit the
+  contract discipline that `docs/MATH.md` §0 already required of the
+  audit instrument and that `docs/INVARIANTS.md` indexes across the
+  whole repo.
+- **`SECURITY.md`** — added entry for `tier-contradiction-guard.sh`
+  to the "what hooks actually do" table. Same fail-silent / warn-only
+  posture as the existing four hooks.
+- **`README.md`** — Status of components table extended with the
+  three new artifacts (INVARIANTS, tier-contradiction-guard,
+  stress-test). Integrity manifest re-hashed for the load-bearing
+  files (CLAUDE.md, the new hook, both new tools).
+- **`INSTALL_PROMPT.md`** — Phase 2 hook registration extended to
+  cover `tier-contradiction-guard.sh` (PreToolUse on Edit / Write /
+  NotebookEdit).
+- **`docs/INSTALL.md`** — manual install path brought in sync with the
+  Claude-native installer: Phase 2 includes `tier-contradiction-guard`
+  cp, JSON registration, and rollback line. New "Verify the repo
+  before you trust it" pre-install block invokes both
+  `test_redaction.py` and `stress-test.py`.
+- **`tools/audit.sh` and `tools/bridge.sh`** — path-agnostic discovery.
+  Both scripts now consult `$COGNITIVE_CLAUDE_HOME` first when locating
+  `cost-audit.py`, before falling back to the canonical
+  `~/cognitive-claude/` and `~/.claude/cognitive-claude/` paths.
+  Operators who clone to a non-canonical path can export the env var
+  in their shell rc to close the calibration loop. Unset = identical
+  prior behavior.
+- **Cross-doc consistency pass.** Updated `8 Laws` → `9 Laws`,
+  `5 hooks` → `6 hooks`, and the `91-line / 1.3k-token` Constitution
+  references throughout `README.md`, `INSTALL_PROMPT.md`,
+  `docs/INSTALL.md`, `docs/MATH.md`, `docs/ARCHITECTURE.md`,
+  `docs/META_LEARNINGS.md`, `docs/INVARIANTS.md`, and `docs/TRANSFER.md`
+  to reflect the v0.1.1 shape. CHANGELOG `[0.1.0]` block intentionally
+  preserves the original phrasing as a historical record.
+- **Integrity manifest** in `README.md` re-hashed for the three files
+  whose content moved (`INSTALL_PROMPT.md`, `tools/audit.sh`,
+  `tools/bridge.sh`).
+
+### Discipline (additions)
+
+- The five canonical metric contracts now have a tool that fails
+  loud (exit 4) when violated — `tools/cost-audit.py --invariants`.
+  Closes the gap between *stated contract* and *machine-verified
+  contract*.
+- The L1↔L4 boundary now has a hook that surfaces violations at
+  authorship time, not at audit time.
+- The audit instrument now has its own end-to-end test (`stress-test.py`)
+  alongside the existing unit test (`test_redaction.py`).
+
+### Not changed
+
+- The 91-line Constitution principle survives at 103 lines (still
+  far below the 5k-line antipattern). Net additions follow §8
+  meta-rule: every new line earns its keep against the cache tax.
+- The five-phase loop (BOOT → EXECUTE → COMPACT → CLOSE → CALIBRATE)
+  is unchanged.
+- The metric definitions in `docs/MATH.md` Section 0 are unchanged
+  (this release verifies them, does not redefine them).
+- No schema changes to the evidence pack.
+- No new external dependencies.
+
+---
+
 ## [0.1.0] — 2026-04-28
 
 Initial public release.
@@ -116,3 +230,4 @@ Initial public release.
 ---
 
 [0.1.0]: https://github.com/l0z4n0-a1/cognitive-claude/releases/tag/v0.1.0
+[0.1.1]: https://github.com/l0z4n0-a1/cognitive-claude/releases/tag/v0.1.1

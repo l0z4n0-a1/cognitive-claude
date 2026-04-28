@@ -52,6 +52,7 @@ without reading it defeats the purpose.
 | `token-economy-guard.sh` | Reads tool input. Prints warnings. Writes nothing. |
 | `token-economy-boot.sh` | Reads optional `~/.claude/cognitive-claude/` files if present. Prints status. |
 | `token-economy-session-end.sh` | Reads optional `~/.claude/cognitive-claude/` files. Appends to bridge-history JSONL. |
+| `tier-contradiction-guard.sh` | Reads tool input. Reads `~/.claude/CLAUDE.md` to extract negation phrases. Prints warnings. Writes nothing. Fail-silent if global Constitution absent. |
 
 ### Telemetry capture and redaction
 
@@ -117,6 +118,7 @@ rm ~/.claude/hooks/cache-guard.sh
 rm ~/.claude/hooks/token-economy-guard.sh
 rm ~/.claude/hooks/token-economy-boot.sh
 rm ~/.claude/hooks/token-economy-session-end.sh
+rm ~/.claude/hooks/tier-contradiction-guard.sh
 
 # Restore your settings.json from backup
 cp ~/.claude/.backups/settings.json.<DATE> ~/.claude/settings.json
