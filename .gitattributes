@@ -1,0 +1,25 @@
+# Normalize line endings across platforms.
+# Critical for the SHA-256 integrity manifest in README to verify
+# correctly on Windows clones (where git's default core.autocrlf=true
+# would otherwise convert LF -> CRLF on checkout, changing every hash).
+
+# All text files use LF in repo and on disk
+* text=auto eol=lf
+
+# Shell scripts: hard-LF (executable on Linux/macOS/WSL/MINGW)
+*.sh text eol=lf
+
+# Python: LF
+*.py text eol=lf
+
+# Markdown: LF (manifest hashes depend on this)
+*.md text eol=lf
+
+# JSON: LF (evidence pack hashes depend on this)
+*.json text eol=lf
+
+# Binary files (none currently, but defense-in-depth)
+*.png binary
+*.jpg binary
+*.gif binary
+*.svg binary

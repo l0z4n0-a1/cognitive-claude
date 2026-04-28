@@ -1,0 +1,1301 @@
+{
+  "daily_timeseries": [
+    {
+      "cache_hit_pct": 79.75,
+      "cost_per_turn_usd": 0.3069,
+      "cost_usd": 707.01,
+      "date": "2026-01-09",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 146327402,
+      "turns": 2304,
+      "turns_agent": 2304,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 87.82,
+      "cost_per_turn_usd": 0.1522,
+      "cost_usd": 279.09,
+      "date": "2026-01-12",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 109705813,
+      "turns": 1834,
+      "turns_agent": 1834,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 84.37,
+      "cost_per_turn_usd": 0.0737,
+      "cost_usd": 85.62,
+      "date": "2026-01-14",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 50455286,
+      "turns": 1161,
+      "turns_agent": 1161,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 87.21,
+      "cost_per_turn_usd": 0.2071,
+      "cost_usd": 974.96,
+      "date": "2026-01-15",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 255804325,
+      "turns": 4707,
+      "turns_agent": 4707,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 73.29,
+      "cost_per_turn_usd": 0.0795,
+      "cost_usd": 52.77,
+      "date": "2026-01-16",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 28018878,
+      "turns": 664,
+      "turns_agent": 664,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 80.74,
+      "cost_per_turn_usd": 0.0683,
+      "cost_usd": 40.89,
+      "date": "2026-01-17",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 28491534,
+      "turns": 599,
+      "turns_agent": 599,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 73.16,
+      "cost_per_turn_usd": 0.0677,
+      "cost_usd": 46.96,
+      "date": "2026-01-18",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 25725114,
+      "turns": 694,
+      "turns_agent": 694,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 80.32,
+      "cost_per_turn_usd": 0.1485,
+      "cost_usd": 263.15,
+      "date": "2026-01-19",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 78635168,
+      "turns": 1772,
+      "turns_agent": 1772,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 48.42,
+      "cost_per_turn_usd": 0.4809,
+      "cost_usd": 88.0,
+      "date": "2026-01-20",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 8955943,
+      "turns": 183,
+      "turns_agent": 183,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 75.12,
+      "cost_per_turn_usd": 0.1031,
+      "cost_usd": 62.76,
+      "date": "2026-01-21",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 20256802,
+      "turns": 609,
+      "turns_agent": 609,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 73.97,
+      "cost_per_turn_usd": 0.0639,
+      "cost_usd": 23.37,
+      "date": "2026-01-23",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 13075224,
+      "turns": 366,
+      "turns_agent": 366,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 72.31,
+      "cost_per_turn_usd": 0.052,
+      "cost_usd": 39.48,
+      "date": "2026-01-24",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 23780490,
+      "turns": 759,
+      "turns_agent": 759,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 68.47,
+      "cost_per_turn_usd": 0.0143,
+      "cost_usd": 1.43,
+      "date": "2026-01-25",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 1168003,
+      "turns": 100,
+      "turns_agent": 100,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 72.21,
+      "cost_per_turn_usd": 0.0923,
+      "cost_usd": 177.52,
+      "date": "2026-01-26",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 62603277,
+      "turns": 1924,
+      "turns_agent": 1924,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 72.95,
+      "cost_per_turn_usd": 0.0541,
+      "cost_usd": 94.92,
+      "date": "2026-01-27",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 67206444,
+      "turns": 1754,
+      "turns_agent": 1754,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 75.32,
+      "cost_per_turn_usd": 0.0933,
+      "cost_usd": 150.3,
+      "date": "2026-01-28",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 69519572,
+      "turns": 1611,
+      "turns_agent": 1611,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 82.45,
+      "cost_per_turn_usd": 0.1564,
+      "cost_usd": 156.57,
+      "date": "2026-01-29",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 54288692,
+      "turns": 1001,
+      "turns_agent": 1001,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 91.57,
+      "cost_per_turn_usd": 0.0542,
+      "cost_usd": 44.48,
+      "date": "2026-01-30",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 35104936,
+      "turns": 821,
+      "turns_agent": 821,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 84.33,
+      "cost_per_turn_usd": 0.0434,
+      "cost_usd": 146.96,
+      "date": "2026-01-31",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 136477769,
+      "turns": 3387,
+      "turns_agent": 3387,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 69.75,
+      "cost_per_turn_usd": 0.5824,
+      "cost_usd": 86.77,
+      "date": "2026-02-01",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 13144409,
+      "turns": 149,
+      "turns_agent": 149,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 86.86,
+      "cost_per_turn_usd": 0.1044,
+      "cost_usd": 281.85,
+      "date": "2026-02-02",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 170922399,
+      "turns": 2700,
+      "turns_agent": 2700,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 73.98,
+      "cost_per_turn_usd": 0.1573,
+      "cost_usd": 456.79,
+      "date": "2026-02-03",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 168131239,
+      "turns": 2904,
+      "turns_agent": 2904,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 85.14,
+      "cost_per_turn_usd": 0.0705,
+      "cost_usd": 163.71,
+      "date": "2026-02-04",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 123681560,
+      "turns": 2321,
+      "turns_agent": 2321,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 81.42,
+      "cost_per_turn_usd": 0.1294,
+      "cost_usd": 43.87,
+      "date": "2026-02-05",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 20203257,
+      "turns": 339,
+      "turns_agent": 339,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 78.84,
+      "cost_per_turn_usd": 0.2109,
+      "cost_usd": 330.84,
+      "date": "2026-02-06",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 121032859,
+      "turns": 1569,
+      "turns_agent": 1569,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 78.47,
+      "cost_per_turn_usd": 0.2026,
+      "cost_usd": 418.43,
+      "date": "2026-02-07",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 119690646,
+      "turns": 2065,
+      "turns_agent": 2065,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 84.24,
+      "cost_per_turn_usd": 0.121,
+      "cost_usd": 525.09,
+      "date": "2026-02-08",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 252476051,
+      "turns": 4339,
+      "turns_agent": 4339,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 80.43,
+      "cost_per_turn_usd": 0.1109,
+      "cost_usd": 267.37,
+      "date": "2026-02-09",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 135352488,
+      "turns": 2410,
+      "turns_agent": 2410,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 71.44,
+      "cost_per_turn_usd": 0.1583,
+      "cost_usd": 384.44,
+      "date": "2026-02-10",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 174543298,
+      "turns": 2429,
+      "turns_agent": 2429,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 83.56,
+      "cost_per_turn_usd": 0.1138,
+      "cost_usd": 203.55,
+      "date": "2026-02-11",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 201094820,
+      "turns": 1788,
+      "turns_agent": 1788,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 76.81,
+      "cost_per_turn_usd": 0.1138,
+      "cost_usd": 151.93,
+      "date": "2026-02-12",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 105846650,
+      "turns": 1335,
+      "turns_agent": 1335,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 73.19,
+      "cost_per_turn_usd": 0.122,
+      "cost_usd": 258.96,
+      "date": "2026-02-13",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 100490826,
+      "turns": 2123,
+      "turns_agent": 2123,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 80.8,
+      "cost_per_turn_usd": 0.1473,
+      "cost_usd": 375.87,
+      "date": "2026-02-15",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 130754569,
+      "turns": 2551,
+      "turns_agent": 2551,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 84.07,
+      "cost_per_turn_usd": 0.0746,
+      "cost_usd": 645.47,
+      "date": "2026-02-16",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 499326248,
+      "turns": 8649,
+      "turns_agent": 8649,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 86.35,
+      "cost_per_turn_usd": 0.145,
+      "cost_usd": 212.57,
+      "date": "2026-02-17",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 91995506,
+      "turns": 1466,
+      "turns_agent": 1466,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 84.59,
+      "cost_per_turn_usd": 0.0924,
+      "cost_usd": 224.54,
+      "date": "2026-02-18",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 155774346,
+      "turns": 2430,
+      "turns_agent": 2430,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 76.48,
+      "cost_per_turn_usd": 0.0274,
+      "cost_usd": 18.78,
+      "date": "2026-02-19",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 32482641,
+      "turns": 685,
+      "turns_agent": 685,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 83.59,
+      "cost_per_turn_usd": 0.034,
+      "cost_usd": 62.97,
+      "date": "2026-02-20",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 96217197,
+      "turns": 1851,
+      "turns_agent": 1851,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 82.08,
+      "cost_per_turn_usd": 0.0763,
+      "cost_usd": 216.08,
+      "date": "2026-02-21",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 134098620,
+      "turns": 2833,
+      "turns_agent": 2833,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 84.37,
+      "cost_per_turn_usd": 0.0643,
+      "cost_usd": 332.56,
+      "date": "2026-02-22",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 291364141,
+      "turns": 5174,
+      "turns_agent": 5174,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 86.67,
+      "cost_per_turn_usd": 0.0449,
+      "cost_usd": 270.84,
+      "date": "2026-02-23",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 305753582,
+      "turns": 6036,
+      "turns_agent": 6036,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 84.27,
+      "cost_per_turn_usd": 0.067,
+      "cost_usd": 166.32,
+      "date": "2026-02-24",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 134849390,
+      "turns": 2483,
+      "turns_agent": 2483,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 86.42,
+      "cost_per_turn_usd": 0.0581,
+      "cost_usd": 197.52,
+      "date": "2026-02-25",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 171918004,
+      "turns": 3402,
+      "turns_agent": 3402,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 90.07,
+      "cost_per_turn_usd": 0.1314,
+      "cost_usd": 503.57,
+      "date": "2026-02-27",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 233944893,
+      "turns": 3833,
+      "turns_agent": 3833,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 88.17,
+      "cost_per_turn_usd": 0.1446,
+      "cost_usd": 526.71,
+      "date": "2026-02-28",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 215284130,
+      "turns": 3643,
+      "turns_agent": 3643,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 95.18,
+      "cost_per_turn_usd": 0.1232,
+      "cost_usd": 1078.92,
+      "date": "2026-03-01",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 629730029,
+      "turns": 8757,
+      "turns_agent": 8757,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 87.17,
+      "cost_per_turn_usd": 0.0856,
+      "cost_usd": 255.78,
+      "date": "2026-03-02",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 170811999,
+      "turns": 2989,
+      "turns_agent": 2989,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 89.2,
+      "cost_per_turn_usd": 0.1354,
+      "cost_usd": 562.25,
+      "date": "2026-03-03",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 275258043,
+      "turns": 4152,
+      "turns_agent": 4152,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 82.19,
+      "cost_per_turn_usd": 0.0503,
+      "cost_usd": 35.73,
+      "date": "2026-03-04",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 30856675,
+      "turns": 710,
+      "turns_agent": 710,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 89.04,
+      "cost_per_turn_usd": 0.0561,
+      "cost_usd": 246.14,
+      "date": "2026-03-05",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 188881849,
+      "turns": 4384,
+      "turns_agent": 4384,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 90.91,
+      "cost_per_turn_usd": 0.0465,
+      "cost_usd": 17.21,
+      "date": "2026-03-06",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 15683423,
+      "turns": 370,
+      "turns_agent": 370,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 94.15,
+      "cost_per_turn_usd": 0.1118,
+      "cost_usd": 266.86,
+      "date": "2026-03-07",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 172238723,
+      "turns": 2386,
+      "turns_agent": 2386,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 82.48,
+      "cost_per_turn_usd": 0.2485,
+      "cost_usd": 157.3,
+      "date": "2026-03-08",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 39047408,
+      "turns": 633,
+      "turns_agent": 633,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 80.85,
+      "cost_per_turn_usd": 0.1435,
+      "cost_usd": 49.07,
+      "date": "2026-03-09",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 11380278,
+      "turns": 342,
+      "turns_agent": 342,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 78.51,
+      "cost_per_turn_usd": 0.1212,
+      "cost_usd": 79.37,
+      "date": "2026-03-10",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 38423621,
+      "turns": 655,
+      "turns_agent": 655,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 83.3,
+      "cost_per_turn_usd": 0.1737,
+      "cost_usd": 231.78,
+      "date": "2026-03-11",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 61067266,
+      "turns": 1334,
+      "turns_agent": 1334,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 87.98,
+      "cost_per_turn_usd": 0.2455,
+      "cost_usd": 717.21,
+      "date": "2026-03-12",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 215946243,
+      "turns": 2922,
+      "turns_agent": 2922,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 71.68,
+      "cost_per_turn_usd": 0.2805,
+      "cost_usd": 94.24,
+      "date": "2026-03-13",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 13827557,
+      "turns": 336,
+      "turns_agent": 336,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 82.14,
+      "cost_per_turn_usd": 0.1393,
+      "cost_usd": 471.02,
+      "date": "2026-03-14",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 159289997,
+      "turns": 3382,
+      "turns_agent": 3382,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 47.01,
+      "cost_per_turn_usd": 0.2134,
+      "cost_usd": 4.69,
+      "date": "2026-03-15",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 340989,
+      "turns": 22,
+      "turns_agent": 22,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 88.84,
+      "cost_per_turn_usd": 0.2102,
+      "cost_usd": 340.35,
+      "date": "2026-03-16",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 96342912,
+      "turns": 1619,
+      "turns_agent": 1619,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 65.22,
+      "cost_per_turn_usd": 0.0158,
+      "cost_usd": 0.95,
+      "date": "2026-03-24",
+      "sub_share_pct": 100.0,
+      "tokens_billable": 2303351,
+      "turns": 60,
+      "turns_agent": 60,
+      "turns_main": 0
+    },
+    {
+      "cache_hit_pct": 93.0,
+      "cost_per_turn_usd": 0.152,
+      "cost_usd": 341.1,
+      "date": "2026-03-29",
+      "sub_share_pct": 70.32,
+      "tokens_billable": 159857979,
+      "turns": 2244,
+      "turns_agent": 1578,
+      "turns_main": 666
+    },
+    {
+      "cache_hit_pct": 97.2,
+      "cost_per_turn_usd": 0.2475,
+      "cost_usd": 2065.45,
+      "date": "2026-03-30",
+      "sub_share_pct": 39.81,
+      "tokens_billable": 1156179411,
+      "turns": 8344,
+      "turns_agent": 3322,
+      "turns_main": 5022
+    },
+    {
+      "cache_hit_pct": 96.82,
+      "cost_per_turn_usd": 0.253,
+      "cost_usd": 2106.35,
+      "date": "2026-03-31",
+      "sub_share_pct": 42.59,
+      "tokens_billable": 1098957289,
+      "turns": 8324,
+      "turns_agent": 3545,
+      "turns_main": 4779
+    },
+    {
+      "cache_hit_pct": 96.22,
+      "cost_per_turn_usd": 0.2435,
+      "cost_usd": 1339.72,
+      "date": "2026-04-01",
+      "sub_share_pct": 50.55,
+      "tokens_billable": 651524057,
+      "turns": 5502,
+      "turns_agent": 2781,
+      "turns_main": 2721
+    },
+    {
+      "cache_hit_pct": 96.71,
+      "cost_per_turn_usd": 0.2589,
+      "cost_usd": 1628.75,
+      "date": "2026-04-02",
+      "sub_share_pct": 36.33,
+      "tokens_billable": 906545592,
+      "turns": 6292,
+      "turns_agent": 2286,
+      "turns_main": 4006
+    },
+    {
+      "cache_hit_pct": 97.64,
+      "cost_per_turn_usd": 0.3265,
+      "cost_usd": 264.43,
+      "date": "2026-04-03",
+      "sub_share_pct": 15.31,
+      "tokens_billable": 145873775,
+      "turns": 810,
+      "turns_agent": 124,
+      "turns_main": 686
+    },
+    {
+      "cache_hit_pct": 96.35,
+      "cost_per_turn_usd": 0.27,
+      "cost_usd": 1685.62,
+      "date": "2026-04-04",
+      "sub_share_pct": 42.25,
+      "tokens_billable": 917340807,
+      "turns": 6244,
+      "turns_agent": 2638,
+      "turns_main": 3606
+    },
+    {
+      "cache_hit_pct": 96.94,
+      "cost_per_turn_usd": 0.2747,
+      "cost_usd": 792.89,
+      "date": "2026-04-05",
+      "sub_share_pct": 22.63,
+      "tokens_billable": 422881460,
+      "turns": 2886,
+      "turns_agent": 653,
+      "turns_main": 2233
+    },
+    {
+      "cache_hit_pct": 95.98,
+      "cost_per_turn_usd": 0.2702,
+      "cost_usd": 841.6,
+      "date": "2026-04-06",
+      "sub_share_pct": 33.77,
+      "tokens_billable": 426269430,
+      "turns": 3115,
+      "turns_agent": 1052,
+      "turns_main": 2063
+    },
+    {
+      "cache_hit_pct": 91.69,
+      "cost_per_turn_usd": 0.6017,
+      "cost_usd": 1629.89,
+      "date": "2026-04-07",
+      "sub_share_pct": 18.79,
+      "tokens_billable": 556944854,
+      "turns": 2709,
+      "turns_agent": 509,
+      "turns_main": 2200
+    },
+    {
+      "cache_hit_pct": 91.36,
+      "cost_per_turn_usd": 0.7603,
+      "cost_usd": 1884.73,
+      "date": "2026-04-08",
+      "sub_share_pct": 9.88,
+      "tokens_billable": 593247735,
+      "turns": 2479,
+      "turns_agent": 245,
+      "turns_main": 2234
+    },
+    {
+      "cache_hit_pct": 90.3,
+      "cost_per_turn_usd": 0.6542,
+      "cost_usd": 1337.21,
+      "date": "2026-04-09",
+      "sub_share_pct": 8.12,
+      "tokens_billable": 399139465,
+      "turns": 2044,
+      "turns_agent": 166,
+      "turns_main": 1878
+    },
+    {
+      "cache_hit_pct": 92.08,
+      "cost_per_turn_usd": 0.2609,
+      "cost_usd": 1188.45,
+      "date": "2026-04-10",
+      "sub_share_pct": 31.33,
+      "tokens_billable": 492216671,
+      "turns": 4555,
+      "turns_agent": 1427,
+      "turns_main": 3128
+    },
+    {
+      "cache_hit_pct": 94.14,
+      "cost_per_turn_usd": 0.2933,
+      "cost_usd": 93.86,
+      "date": "2026-04-11",
+      "sub_share_pct": 13.12,
+      "tokens_billable": 31826401,
+      "turns": 320,
+      "turns_agent": 42,
+      "turns_main": 278
+    },
+    {
+      "cache_hit_pct": 92.09,
+      "cost_per_turn_usd": 0.3057,
+      "cost_usd": 157.45,
+      "date": "2026-04-13",
+      "sub_share_pct": 13.4,
+      "tokens_billable": 48409613,
+      "turns": 515,
+      "turns_agent": 69,
+      "turns_main": 446
+    },
+    {
+      "cache_hit_pct": 93.43,
+      "cost_per_turn_usd": 0.2409,
+      "cost_usd": 1847.3,
+      "date": "2026-04-14",
+      "sub_share_pct": 60.75,
+      "tokens_billable": 803762540,
+      "turns": 7669,
+      "turns_agent": 4659,
+      "turns_main": 3010
+    },
+    {
+      "cache_hit_pct": 94.73,
+      "cost_per_turn_usd": 0.2393,
+      "cost_usd": 1151.74,
+      "date": "2026-04-15",
+      "sub_share_pct": 29.13,
+      "tokens_billable": 524144565,
+      "turns": 4813,
+      "turns_agent": 1402,
+      "turns_main": 3411
+    },
+    {
+      "cache_hit_pct": 93.2,
+      "cost_per_turn_usd": 0.3739,
+      "cost_usd": 206.77,
+      "date": "2026-04-16",
+      "sub_share_pct": 17.54,
+      "tokens_billable": 78012412,
+      "turns": 553,
+      "turns_agent": 97,
+      "turns_main": 456
+    },
+    {
+      "cache_hit_pct": 95.19,
+      "cost_per_turn_usd": 0.4489,
+      "cost_usd": 1895.7,
+      "date": "2026-04-17",
+      "sub_share_pct": 20.84,
+      "tokens_billable": 689117789,
+      "turns": 4223,
+      "turns_agent": 880,
+      "turns_main": 3343
+    },
+    {
+      "cache_hit_pct": 97.38,
+      "cost_per_turn_usd": 0.2673,
+      "cost_usd": 141.16,
+      "date": "2026-04-18",
+      "sub_share_pct": 13.64,
+      "tokens_billable": 81996433,
+      "turns": 528,
+      "turns_agent": 72,
+      "turns_main": 456
+    },
+    {
+      "cache_hit_pct": 91.87,
+      "cost_per_turn_usd": 0.614,
+      "cost_usd": 323.58,
+      "date": "2026-04-22",
+      "sub_share_pct": 3.61,
+      "tokens_billable": 96096032,
+      "turns": 527,
+      "turns_agent": 19,
+      "turns_main": 508
+    },
+    {
+      "cache_hit_pct": 93.18,
+      "cost_per_turn_usd": 0.4115,
+      "cost_usd": 1429.61,
+      "date": "2026-04-23",
+      "sub_share_pct": 37.91,
+      "tokens_billable": 481101454,
+      "turns": 3474,
+      "turns_agent": 1317,
+      "turns_main": 2157
+    },
+    {
+      "cache_hit_pct": 94.52,
+      "cost_per_turn_usd": 0.5021,
+      "cost_usd": 1769.75,
+      "date": "2026-04-24",
+      "sub_share_pct": 27.55,
+      "tokens_billable": 573985019,
+      "turns": 3525,
+      "turns_agent": 971,
+      "turns_main": 2554
+    },
+    {
+      "cache_hit_pct": 82.62,
+      "cost_per_turn_usd": 0.6879,
+      "cost_usd": 46.09,
+      "date": "2026-04-25",
+      "sub_share_pct": 0.0,
+      "tokens_billable": 9235191,
+      "turns": 67,
+      "turns_agent": 0,
+      "turns_main": 67
+    },
+    {
+      "cache_hit_pct": 95.05,
+      "cost_per_turn_usd": 0.735,
+      "cost_usd": 1885.23,
+      "date": "2026-04-27",
+      "sub_share_pct": 3.43,
+      "tokens_billable": 669808008,
+      "turns": 2565,
+      "turns_agent": 88,
+      "turns_main": 2477
+    },
+    {
+      "cache_hit_pct": 96.72,
+      "cost_per_turn_usd": 0.5957,
+      "cost_usd": 1809.23,
+      "date": "2026-04-28",
+      "sub_share_pct": 12.94,
+      "tokens_billable": 782751440,
+      "turns": 3037,
+      "turns_agent": 393,
+      "turns_main": 2644
+    }
+  ],
+  "definitions": {
+    "agent_turn": "turn whose JSONL filename starts with `agent-` (sub-agent context)",
+    "cache_hit_rate_pct": "cache_read / (cache_read + input + cache_write) \u00d7 100",
+    "cost_api_equivalent": "tokens \u00d7 Anthropic published per-model price",
+    "main_turn": "turn whose JSONL filename does not start with `agent-`",
+    "sub_agent_share_pct": "agent_turns / total_turns \u00d7 100 (filename-based, schema-stable)",
+    "turn": "assistant message with non-empty usage block"
+  },
+  "generated_at": "2026-04-28T10:51:05.716881+00:00",
+  "known_anthropic_events": {
+    "2026-03-04": "Reasoning effort default lowered high \u2192 medium",
+    "2026-03-13": "2x usage promotion START (off-peak weekdays + 24/7 weekends)",
+    "2026-03-26": "Cache bug shipped (clear_thinking_20251015 + keep:1)",
+    "2026-03-27": "2x usage promotion END",
+    "2026-04-07": "Reasoning effort REVERTED to high",
+    "2026-04-10": "Cache bug FIXED",
+    "2026-04-16": "Verbosity-reduction prompt added (regression)",
+    "2026-04-20": "All fixes live in v2.1.116",
+    "2026-04-23": "Postmortem published"
+  },
+  "plan_months": 3,
+  "plan_paid_usd": 500.0,
+  "pricing": {
+    "haiku": {
+      "cache_read": 0.08,
+      "cache_write": 1.0,
+      "input": 0.8,
+      "output": 4.0
+    },
+    "opus": {
+      "cache_read": 1.5,
+      "cache_write": 18.75,
+      "input": 15.0,
+      "output": 75.0
+    },
+    "sonnet": {
+      "cache_read": 0.3,
+      "cache_write": 3.75,
+      "input": 3.0,
+      "output": 15.0
+    }
+  },
+  "project_concentration": {
+    "top_15": [
+      {
+        "cost_usd": 18171.63,
+        "project": "subagents",
+        "share_pct": 40.17,
+        "turns": 163145
+      },
+      {
+        "cost_usd": 8305.89,
+        "project": "Project A",
+        "share_pct": 18.36,
+        "turns": 16970
+      },
+      {
+        "cost_usd": 6064.24,
+        "project": "Project B",
+        "share_pct": 13.41,
+        "turns": 12635
+      },
+      {
+        "cost_usd": 5768.6,
+        "project": "Project C",
+        "share_pct": 12.75,
+        "turns": 13735
+      },
+      {
+        "cost_usd": 1865.33,
+        "project": "Project D",
+        "share_pct": 4.12,
+        "turns": 4339
+      },
+      {
+        "cost_usd": 1190.45,
+        "project": "Project E",
+        "share_pct": 2.63,
+        "turns": 1369
+      },
+      {
+        "cost_usd": 879.25,
+        "project": "Project F",
+        "share_pct": 1.94,
+        "turns": 1834
+      },
+      {
+        "cost_usd": 856.04,
+        "project": "Project G",
+        "share_pct": 1.89,
+        "turns": 1848
+      },
+      {
+        "cost_usd": 447.24,
+        "project": "Project H",
+        "share_pct": 0.99,
+        "turns": 749
+      },
+      {
+        "cost_usd": 427.93,
+        "project": "Project I",
+        "share_pct": 0.95,
+        "turns": 1210
+      },
+      {
+        "cost_usd": 259.27,
+        "project": "Project J",
+        "share_pct": 0.57,
+        "turns": 430
+      },
+      {
+        "cost_usd": 214.84,
+        "project": "Project K",
+        "share_pct": 0.47,
+        "turns": 333
+      },
+      {
+        "cost_usd": 196.87,
+        "project": "Project L",
+        "share_pct": 0.44,
+        "turns": 493
+      },
+      {
+        "cost_usd": 166.63,
+        "project": "Project M",
+        "share_pct": 0.37,
+        "turns": 144
+      },
+      {
+        "cost_usd": 136.3,
+        "project": "Project N",
+        "share_pct": 0.3,
+        "turns": 281
+      }
+    ],
+    "total_cost_usd": 45236.14,
+    "total_projects": 20
+  },
+  "scan": {
+    "elapsed_seconds": 121.25,
+    "files_processed": 8518,
+    "files_total": 8518,
+    "lines_malformed": 3,
+    "lines_total": 498961,
+    "max_record_timestamp": "2026-04-28T10:49:01.012000+00:00",
+    "min_record_timestamp": "2026-01-09T13:34:22.397000+00:00",
+    "projects_dir": "<operator local path>",
+    "records_assistant_with_usage": 222693,
+    "records_no_timestamp": 0
+  },
+  "schema_version": "1.0",
+  "windows": {
+    "30d": {
+      "active_days": 26,
+      "by_model": {
+        "haiku": {
+          "cost_usd": 126.9,
+          "share_pct": 14.07,
+          "tokens": 585985012,
+          "turns": 12288
+        },
+        "opus": {
+          "cost_usd": 29396.37,
+          "share_pct": 75.55,
+          "tokens": 11791687218,
+          "turns": 66003
+        },
+        "sonnet": {
+          "cost_usd": 340.37,
+          "share_pct": 10.39,
+          "tokens": 465331035,
+          "turns": 9073
+        }
+      },
+      "cache_hit_rate_pct": 95.0428,
+      "cost_api_equivalent_usd": 29863.64,
+      "cost_per_active_day_usd": 1148.6,
+      "cost_per_turn_api_usd": 0.34183,
+      "leverage_full_term": 59.73,
+      "leverage_per_month": 179.18,
+      "sessions": 337,
+      "sub_agent_share_pct": 34.7225,
+      "tokens": {
+        "cache_read": 12162843867,
+        "cache_write": 609150871,
+        "input_fresh": 25230684,
+        "output": 45777843,
+        "total_billable": 12797225422
+      },
+      "turns_agent": 30335,
+      "turns_main": 57029,
+      "turns_per_session_mean": 259.24,
+      "turns_per_session_median": 179,
+      "turns_total": 87364,
+      "window_days": 30
+    },
+    "7d": {
+      "active_days": 6,
+      "by_model": {
+        "haiku": {
+          "cost_usd": 11.55,
+          "share_pct": 7.49,
+          "tokens": 37770804,
+          "turns": 988
+        },
+        "opus": {
+          "cost_usd": 7222.2,
+          "share_pct": 87.36,
+          "tokens": 2553074639,
+          "turns": 11527
+        },
+        "sonnet": {
+          "cost_usd": 29.74,
+          "share_pct": 5.15,
+          "tokens": 40844976,
+          "turns": 680
+        }
+      },
+      "cache_hit_rate_pct": 94.9293,
+      "cost_api_equivalent_usd": 7263.48,
+      "cost_per_active_day_usd": 1210.58,
+      "cost_per_turn_api_usd": 0.550472,
+      "leverage_full_term": 14.53,
+      "leverage_per_month": 43.58,
+      "sessions": 71,
+      "sub_agent_share_pct": 21.1292,
+      "tokens": {
+        "cache_read": 2480480080,
+        "cache_write": 126869096,
+        "input_fresh": 5627968,
+        "output": 18713275,
+        "total_billable": 2612977144
+      },
+      "turns_agent": 2788,
+      "turns_main": 10407,
+      "turns_per_session_mean": 185.85,
+      "turns_per_session_median": 165,
+      "turns_total": 13195,
+      "window_days": 7
+    },
+    "90d": {
+      "active_days": 74,
+      "by_model": {
+        "haiku": {
+          "cost_usd": 680.63,
+          "share_pct": 27.59,
+          "tokens": 2944871642,
+          "turns": 55709
+        },
+        "opus": {
+          "cost_usd": 39873.47,
+          "share_pct": 52.54,
+          "tokens": 14442586630,
+          "turns": 106092
+        },
+        "sonnet": {
+          "cost_usd": 1804.1,
+          "share_pct": 19.86,
+          "tokens": 2131651622,
+          "turns": 40109
+        }
+      },
+      "cache_hit_rate_pct": 91.6319,
+      "cost_api_equivalent_usd": 42358.19,
+      "cost_per_active_day_usd": 572.41,
+      "cost_per_turn_api_usd": 0.209787,
+      "leverage_full_term": 84.72,
+      "leverage_per_month": 254.15,
+      "sessions": 987,
+      "sub_agent_share_pct": 71.7552,
+      "tokens": {
+        "cache_read": 17830116521,
+        "cache_write": 1582266856,
+        "input_fresh": 46024969,
+        "output": 60701548,
+        "total_billable": 19458408346
+      },
+      "turns_agent": 144881,
+      "turns_main": 57029,
+      "turns_per_session_mean": 204.57,
+      "turns_per_session_median": 112,
+      "turns_total": 201910,
+      "window_days": 90
+    },
+    "all": {
+      "active_days": 88,
+      "by_model": {
+        "haiku": {
+          "cost_usd": 732.82,
+          "share_pct": 27.34,
+          "tokens": 3132825788,
+          "turns": 60193
+        },
+        "opus": {
+          "cost_usd": 42563.23,
+          "share_pct": 52.71,
+          "tokens": 15012630161,
+          "turns": 116049
+        },
+        "sonnet": {
+          "cost_usd": 1940.1,
+          "share_pct": 19.95,
+          "tokens": 2253526003,
+          "turns": 43932
+        }
+      },
+      "cache_hit_rate_pct": 91.1983,
+      "cost_api_equivalent_usd": 45236.14,
+      "cost_per_active_day_usd": 514.05,
+      "cost_per_turn_api_usd": 0.205456,
+      "leverage_full_term": 90.47,
+      "leverage_per_month": 271.42,
+      "sessions": 1087,
+      "sub_agent_share_pct": 74.0982,
+      "tokens": {
+        "cache_read": 18544838111,
+        "cache_write": 1736945987,
+        "input_fresh": 52846128,
+        "output": 64351726,
+        "total_billable": 20334630226
+      },
+      "turns_agent": 163145,
+      "turns_main": 57029,
+      "turns_per_session_mean": 202.55,
+      "turns_per_session_median": 108,
+      "turns_total": 220174,
+      "window_days": 99999
+    }
+  }
+}
